@@ -3,7 +3,7 @@ CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP
 
 INC_DIR = inc
 SRC_DIR = src
-SRCS = main.c
+SRCS = main.c utils.c
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -13,7 +13,8 @@ all : $(NAME)
 
 $(NAME) : $(OBJ_DIR) $(OBJS)
 	make bonus -s -C libft
-	$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $@
+	make -s -C minilibx_opengl_20191021
+	$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a ./minilibx_opengl_20191021/libmlx.a -o $@
 
 $(OBJ_DIR) :
 	mkdir $@
@@ -23,6 +24,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 
 clean :
 	make clean -s -C libft
+	make clean -s -C minilibx_opengl_20191021
 	rm -rf $(OBJ_DIR)
 
 fclean : clean

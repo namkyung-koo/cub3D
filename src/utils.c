@@ -1,25 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/13 11:06:27 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/14 15:14:44 by nakoo            ###   ########.fr       */
+/*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
+/*   Updated: 2023/06/14 15:29:44 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int	print_error(char *msg)
 {
-	unsigned int	i;
+	ft_putendl_fd("Error", 2);
+	ft_putendl_fd(msg, 2);
+	return (1);
+}
 
+int	check_format(char *av)
+{
+	int	i;
+	int	flag;
+
+	flag = 0;
 	i = 0;
-	while (s[i] != '\0')
+	while (av[i] != '\0')
 	{
-		f(i, &s[i]);
+		if (av[i] == '.')
+		{
+			flag = 1;
+			break ;
+		}
+		else if (ft_isprint(av[i]) == 0)
+			return (-1);
 		i++;
 	}
+	if (flag == 0)
+		return (-1);
+	else
+	{
+		++i;
+		if (ft_strcmp(&av[i], "cub") != 0)
+			return (-1);
+	}
+	return (0);
 }
