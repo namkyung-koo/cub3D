@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/14 15:29:44 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/14 15:45:07 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_error(char *msg)
 	return (1);
 }
 
-int	check_format(char *av)
+int	check_extension(char *av)
 {
 	int	i;
 	int	flag;
