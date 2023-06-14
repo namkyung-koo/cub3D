@@ -3,7 +3,7 @@ CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP
 
 INC_DIR = inc
 SRC_DIR = src
-SRCS = main.c utils.c
+SRCS = main.c utils.c cub_validation.c
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

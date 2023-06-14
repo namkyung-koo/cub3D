@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/14 15:45:07 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/14 17:27:30 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_error(char *msg)
 	return (1);
 }
 
-int	check_extension(char *av)
+int	check_extension(char *av, const char *extension)
 {
 	int	i;
 	int	flag;
@@ -42,7 +42,7 @@ int	check_extension(char *av)
 	else
 	{
 		++i;
-		if (ft_strcmp(&av[i], "cub") != 0)
+		if (ft_strcmp(&av[i], extension) != 0)
 			return (-1);
 	}
 	return (0);
