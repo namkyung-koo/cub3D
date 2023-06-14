@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/14 18:36:27 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/14 19:20:51 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_element {
 	char	*south_texture;
 	char	*west_texture;
 	char	*east_texture;
+	char	*floor;
+	char	*ceiling;
 	int		floor_r;
 	int		floor_g;
 	int		floor_b;
@@ -37,5 +39,10 @@ typedef struct s_element {
 // utils.c
 int	print_error(char *msg);
 int	check_extension(char *av, const char *extension);
+
+// cub_validation.c
+int	check_map(void);
+int	open_cub_file(const char *cub_file);
+int	check_element(int fd, t_element *element);
 
 #endif

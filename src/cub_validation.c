@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/14 18:55:20 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/14 20:51:54 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 
 int	check_element(int fd, t_element *element)
 {
+	char	*buff;
+	int		bytes;
+	
+	// buffer size는 어떻게 측정하는지 ?
+	buff = (char *)malloc(sizeof(char) * 2048);
+	if (buff == NULL)
+	{
+		perror("Failed to allocate memory ");
+		return (-1);
+	}
+	bytes = 1;
+	while (bytes != 0)
+	{
+		bytes = read(fd, buff, 1024);
+		if (bytes == -1 || buff[0] == '\0')
+			break ;
+	}
+	
 	return (0);
 }
 
