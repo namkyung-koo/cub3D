@@ -6,17 +6,17 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/14 17:27:30 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/17 11:50:22 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	print_error(char *msg)
+int	print_error(char *msg, int return_value)
 {
 	ft_putendl_fd("Error", 2);
 	ft_putendl_fd(msg, 2);
-	return (1);
+	return (return_value);
 }
 
 int	check_extension(char *av, const char *extension)

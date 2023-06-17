@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/14 19:20:51 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/17 11:50:52 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_element {
 }	t_element;
 
 // utils.c
-int	print_error(char *msg);
+int	print_error(char *msg, int return_value);
 int	check_extension(char *av, const char *extension);
 
 // cub_validation.c
