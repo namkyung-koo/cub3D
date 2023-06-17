@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/17 11:50:22 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/17 12:33:06 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,12 @@ int	check_extension(char *av, const char *extension)
 			return (-1);
 	}
 	return (0);
+}
+
+int	free_and_null(char **ptr, int return_value)
+{
+	if (*ptr != NULL)
+		free(*ptr);
+	*ptr = NULL;
+	return (return_value);
 }

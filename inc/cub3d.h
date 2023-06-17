@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/17 11:50:52 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/17 12:46:20 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,13 @@ typedef struct s_element {
 
 // utils.c
 int	print_error(char *msg, int return_value);
+int	free_and_null(char **ptr, int return_value);
 int	check_extension(char *av, const char *extension);
 
 // cub_validation.c
-int	check_map(void);
-int	open_cub_file(const char *cub_file);
-int	check_element(int fd, t_element *element);
+int	open_cub_file(const char *cub_file, t_element *element);
+int	read_cub_file(int fd, char **buff);
+int	check_element(t_element **element, char *buff);
+int	check_map(t_element **element, char *buff);
 
 #endif
