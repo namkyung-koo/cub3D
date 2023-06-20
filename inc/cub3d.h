@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/17 12:46:20 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/20 19:09:58 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	check_extension(char *av, const char *extension);
 
 // cub_validation.c
 int	open_cub_file(const char *cub_file, t_element *element);
-int	read_cub_file(int fd, char **buff);
-int	check_element(t_element **element, char *buff);
-int	check_map(t_element **element, char *buff);
 
+// utils_validtion.c
+int	new_line_to_null(char *ptr);
+int	check_path_and_extension(char *ptr);
 #endif

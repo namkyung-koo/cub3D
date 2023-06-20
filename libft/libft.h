@@ -6,15 +6,14 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:52 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/17 11:46:49 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/17 15:14:53 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
-# include <stdlib.h>
+# include "../inc/cub3d.h"
 
 # define BUFFER_SIZE 1024
 
