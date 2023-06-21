@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:52 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/17 15:14:53 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/21 13:23:16 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	*ft_memset(void *b, int c, size_t len);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
+char	*ft_strstr(const char *haystack, const char *needle);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
