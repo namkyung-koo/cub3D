@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 19:32:24 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 20:43:55 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*newline_to_null(char *line)
 	int	i;
 
 	i = 0;
-	while (*(line + i) != '\n')
+	while (*(line + i) != '\n' || (*line + i) != '\0')
 		i++;
 	if (*(line + i) == '\n')
 		*(line + i) = '\0';
