@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/21 17:23:03 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 20:31:07 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,21 @@ typedef struct s_data {
 	t_file	file;
 }	t_data;
 
+enum e_flag {
+	ELEMENT,
+	MAP
+};
+
 // utils.c
-int		print_error(char *msg, int return_value);
+int		print_error(char *msg, int return_value, char **ptr);
 int		check_extension(char *av, const char *extension);
-char	*free_and_msg(char **ptr, char *msg);
+void	skip_space(char **line);
+char	*newline_to_null(char *line);
 
 // cub_validation.c
 int		open_cub_file(const char *cub_file, t_data *data);
 
 // utils_validtion.c
-int		find_address(t_data **data, char *line);
-int		check_path_and_extension(char *ptr);
+int		split_space(t_data **data, char **line);
+
 #endif

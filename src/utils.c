@@ -6,14 +6,17 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/21 16:31:29 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 19:32:24 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	print_error(char *msg, int return_value)
+int	print_error(char *msg, int return_value, char **ptr)
 {
+	if (*ptr != NULL)
+		free(*ptr);
+	*ptr = NULL;
 	ft_putendl_fd("Error", 2);
 	ft_putendl_fd(msg, 2);
 	return (return_value);
@@ -48,12 +51,20 @@ int	check_extension(char *av, const char *extension)
 	return (0);
 }
 
-char	*free_and_msg(char **ptr, char *msg)
+char	*newline_to_null(char *line)
 {
-	if (*ptr != NULL)
-		free(*ptr);
-	*ptr = NULL;
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(msg, 2);
-	return (NULL);
+	int	i;
+
+	i = 0;
+	while (*(line + i) != '\n')
+		i++;
+	if (*(line + i) == '\n')
+		*(line + i) = '\0';
+	return (line);
+}
+
+void	skip_space(char **line)
+{
+	while ((**line) == ' ')
+		(*line)++;
 }
