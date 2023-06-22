@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 20:35:00 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 21:06:34 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	save_rgb_color(t_data **data, char **temp)
 	return (0);
 }
 
-int	split_space(t_data **data, char **line)
+int	fill_identifier(t_data **data, char **line)
 {
 	char	**temp;
 

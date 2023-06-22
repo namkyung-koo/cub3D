@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 20:31:07 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 21:20:03 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_file {
 }	t_file;
 
 typedef struct s_map {
+	int		dir;
 	int		width;
 	int		height;
 	char	**map;
@@ -47,9 +48,16 @@ typedef struct s_data {
 	t_file	file;
 }	t_data;
 
-enum e_flag {
-	ELEMENT,
-	MAP
+enum e_direction {
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST
+};
+
+enum e_bool {
+	FALSE,
+	TRUE
 };
 
 // utils.c
@@ -61,7 +69,10 @@ char	*newline_to_null(char *line);
 // cub_validation.c
 int		open_cub_file(const char *cub_file, t_data *data);
 
-// utils_validtion.c
-int		split_space(t_data **data, char **line);
+// identifier_data.c
+int		fill_identifier(t_data **data, char **line);
+
+// map_data.c
+int		fill_map(t_data **data, char **line);
 
 #endif

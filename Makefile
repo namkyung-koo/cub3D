@@ -3,7 +3,7 @@ CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP
 
 INC_DIR = inc
 SRC_DIR = src
-SRCS = main.c utils.c cub_validation.c utils_validation.c
+SRCS = main.c utils.c cub_validation.c identifier_data.c map_data.c
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -12,7 +12,7 @@ DEPS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.d))
 all : $(NAME)
 
 $(NAME) : $(OBJ_DIR) $(OBJS)
-	make -s -C libft
+	make -s bonus -C libft
 	make -s -C minilibx_opengl_20191021
 	$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a ./minilibx_opengl_20191021/libmlx.a -o $@
 
