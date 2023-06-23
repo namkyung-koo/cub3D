@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_validation.c                                 :+:      :+:    :+:   */
+/*   identifier_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 21:06:34 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/23 15:02:25 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ static int	save_texture_path(t_data **data, char **temp)
 	texture = (char *)malloc(sizeof(char) * ft_strlen(temp[1]));
 	if (texture == NULL)
 		return (print_error("Failed to allocate memory.", -1, temp));
-	if ((*data)->file.is_north_texture == 1)
-		(*data)->north_texture_path = texture;
-	else if ((*data)->file.is_south_texture == 1)
-		(*data)->south_texture_path = texture;
-	else if ((*data)->file.is_west_texture == 1)
-		(*data)->west_texture_path = texture;
-	else if ((*data)->file.is_east_texture == 1)
-		(*data)->east_texture_path = texture;
+	if ((*data)->file.is_north_texture == 1 && (!(*data)->no_texture_path))
+		(*data)->no_texture_path = texture;
+	else if ((*data)->file.is_south_texture == 1 && (!(*data)->so_texture_path))
+		(*data)->so_texture_path = texture;
+	else if ((*data)->file.is_west_texture == 1 && (!(*data)->we_texture_path))
+		(*data)->we_texture_path = texture;
+	else if ((*data)->file.is_east_texture == 1 && (!(*data)->ea_texture_path))
+		(*data)->ea_texture_path = texture;
 	return (0);
 }
 
@@ -70,9 +70,9 @@ static int	save_rgb_color(t_data **data, char **temp)
 	b = ft_atoi(rgb[2]);
 	if (r == -1 || g == -1 || b == -1)
 		return (print_error("", -1, rgb));
-	if ((*data)->file.is_floor == 1)
+	if ((*data)->file.is_floor == 1 && (*data)->floor_rgb == -2)
 		(*data)->floor_rgb = ((r << 16) + (g << 8) + b);
-	else if ((*data)->file.is_ceiling == 1)
+	else if ((*data)->file.is_ceiling == 1 && (*data)->ceiling_rgb == -2)
 		(*data)->ceiling_rgb = ((r << 16) + (g << 8) + b);
 	free(rgb);
 	return (0);
@@ -100,8 +100,6 @@ int	fill_identifier(t_data **data, char **line)
 		if (save_rgb_color(data, temp) == -1)
 			return (print_error("", -1, temp));
 	}
-	else
-		return (print_error("", -1, temp));
 	free(temp);
 	return (0);
 }

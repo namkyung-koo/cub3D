@@ -6,13 +6,13 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 19:03:38 by nakoo             #+#    #+#             */
-/*   Updated: 2022/11/01 09:13:38 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 22:10:06 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*free_memory(char **ptr)
+static char	*free_memory(char **ptr)
 {
 	if (*ptr)
 		free(*ptr);
@@ -20,7 +20,7 @@ char	*free_memory(char **ptr)
 	return (NULL);
 }
 
-char	*update_backup(char **backup, char *buff)
+static char	*update_backup(char **backup, char *buff)
 {
 	char	*new_backup;
 	size_t	backup_len;
@@ -39,7 +39,7 @@ char	*update_backup(char **backup, char *buff)
 	return (new_backup);
 }
 
-char	*make_line_with_newline_or_null(char **backup)
+static char	*make_line_with_newline_or_null(char **backup)
 {
 	char	*nl_or_null;
 	char	*ret;

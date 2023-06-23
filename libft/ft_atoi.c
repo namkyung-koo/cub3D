@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:54:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 20:35:34 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 22:11:00 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int	ft_atoi(const char *str)
 	if (*str != '\0')
 		return (print_error("There are invaild arguments.", -1, NULL));
 	if (res > 255)
-		return (print_error("The value of color must be less than 256.", -1, NULL));
+		return (print_error("RGB must be less than 256.", -1, NULL));
 	return (res);
 }

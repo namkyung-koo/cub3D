@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 21:20:03 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/23 14:40:03 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ typedef struct s_map {
 }	t_map;
 
 typedef struct s_data {
-	char	*north_texture_path;
-	char	*south_texture_path;
-	char	*west_texture_path;
-	char	*east_texture_path;
+	char	*no_texture_path;
+	char	*so_texture_path;
+	char	*we_texture_path;
+	char	*ea_texture_path;
 	int		floor_rgb;
 	int		ceiling_rgb;
 	t_map	map_info;

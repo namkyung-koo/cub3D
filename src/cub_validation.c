@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 21:55:56 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/23 15:01:55 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	open_cub_file(const char *cub_file, t_data *data)
 	else
 	{
 		ft_memset(data, 0, sizeof(t_data));
+		data->floor_rgb = -2;
+		data->ceiling_rgb = -2;
 		read_cub_file(fd, &data);
 		fd = close(fd);
 		if (fd == -1)

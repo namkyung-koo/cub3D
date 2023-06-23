@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 21:08:39 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 21:56:57 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/23 14:15:00 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ static int	check_identifier(t_data **data)
 	return (0);
 }
 
+static int	check_character(t_data **data, char **line)
+{
+	return (0);
+}
+
 int	fill_map(t_data **data, char **line)
 {
 	if (check_identifier(data))
@@ -32,6 +37,7 @@ int	fill_map(t_data **data, char **line)
 	// 맵이 벽으로 둘러 싸여있는지 확인
 	// width와 height 넘겨주기 ?
 	// (*data)->map_info.map에 동적 할당해서 넘겨주기
+	// char ** or list
 	if ((*data)->file.is_map == FALSE)
 		(*data)->file.is_map = TRUE;
 	return (0);

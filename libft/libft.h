@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:52 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/21 13:23:16 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/22 22:10:13 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* get_next_line */
 char	*get_next_line(int fd);
-char	*free_memory(char **ptr);
-char	*update_backup(char **backup, char *buff);
-char	*make_line_with_newline_or_null(char **backup);
 
 #endif
