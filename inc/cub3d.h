@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 14:40:03 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/23 19:26:52 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_map {
 	int		dir;
 	int		width;
 	int		height;
-	char	**map;
+	int		**map;
+	char	**prototype;
 }	t_map;
 
 typedef struct s_data {
@@ -49,10 +50,10 @@ typedef struct s_data {
 }	t_data;
 
 enum e_direction {
-	NORTH,
-	SOUTH,
-	WEST,
-	EAST
+	NORTH = 78,
+	SOUTH = 83,
+	WEST = 87,
+	EAST = 69
 };
 
 enum e_bool {
@@ -61,8 +62,9 @@ enum e_bool {
 };
 
 // utils.c
-int		print_error(char *msg, int return_value, char **ptr);
 int		check_extension(char *av, const char *extension);
+int		print_error(char *msg, int return_value, char **ptr);
+int		free_all(char *msg, int return_value, t_data **data);
 void	skip_space(char **line);
 char	*newline_to_null(char *line);
 
@@ -70,6 +72,7 @@ char	*newline_to_null(char *line);
 int		open_cub_file(const char *cub_file, t_data *data);
 
 // identifier_data.c
+int		check_identifier(t_data **data);
 int		fill_identifier(t_data **data, char **line);
 
 // map_data.c

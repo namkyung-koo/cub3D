@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 15:02:25 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/23 19:28:20 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,17 @@ static int	save_rgb_color(t_data **data, char **temp)
 	return (0);
 }
 
+int	check_identifier(t_data **data)
+{
+	if ((*data)->file.is_floor == 1 && (*data)->file.is_ceiling == 1 && \
+	(*data)->file.is_south_texture == 1 && \
+	(*data)->file.is_west_texture == 1 && \
+	(*data)->file.is_east_texture == 1 && \
+	(*data)->file.is_north_texture == 1)
+		return (1);
+	return (0);
+}
+
 int	fill_identifier(t_data **data, char **line)
 {
 	char	**temp;
@@ -101,5 +112,7 @@ int	fill_identifier(t_data **data, char **line)
 			return (print_error("", -1, temp));
 	}
 	free(temp);
+	if (check_identifier(data))
+		(*data)->file.is_map = TRUE;
 	return (0);
 }
