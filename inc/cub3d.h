@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 19:26:52 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/26 22:43:34 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,36 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
+
+typedef struct s_image{
+	void	*img;
+	int		*data;
+	int		img_width;
+	int		img_height;
+	int		size;
+	int		bpp;
+	int		endian;
+}	t_image;
+
+typedef struct s_player {
+	double	posX;
+	double	posY;
+	double	dir_vectorX;
+	double	dir_vectorY;
+	double	planeX;
+	double	planeY;
+	
+}	t_player;
+
+typedef struct s_info {
+	void		*mlx;
+	void		*win;
+	t_player	player;
+	t_image		screen_img;
+	int			**texture;
+	
+	
+}	t_info;
 
 typedef struct s_file {
 	int		is_north_texture;
@@ -54,6 +84,16 @@ enum e_direction {
 	SOUTH = 83,
 	WEST = 87,
 	EAST = 69
+};
+
+enum e_texture {
+	tex_height = 64,
+	tex_width = 64
+};
+
+enum e_screen {
+	screenWidth = 640,
+	screenHeight = 480
 };
 
 enum e_bool {
