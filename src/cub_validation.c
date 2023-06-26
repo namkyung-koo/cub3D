@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 18:32:10 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/26 22:39:15 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	initialize_data(t_data **data)
 
 static int	manipulate_line(t_data **data, char **line)
 {
-	if ((*data)->file.is_map == FALSE)
+	if ((*data)->file.over_identifier == FALSE)
 		skip_space(line);
 	if ((**line) == '\0')
 		return (0);
@@ -30,7 +30,7 @@ static int	manipulate_line(t_data **data, char **line)
 	ft_strncmp(*line, "F ", 2) == 0 || ft_strncmp(*line, "C ", 2) == 0) && \
 	(*data)->file.is_map == FALSE)
 		return (fill_identifier(data, line));
-	else
+	else if ((*data)->file.is_map == TRUE)
 		return (fill_map(data, line));
 	return (0);
 }
@@ -58,15 +58,12 @@ int	open_cub_file(const char *cub_file, t_data *data)
 
 	fd = open(cub_file, O_RDONLY);
 	if (fd == -1)
-		perror("Failed to open cub file ");
-	else
-	{
-		initialize_data(&data);
-		if (read_cub_file(fd, &data) == -1)
-			return (-1);
-		fd = close(fd);
-		if (fd == -1)
-			perror("Failed to close file ");
-	}
-	return (fd);
+		return (print_error("Failed to open cub file", -1, NULL));
+	initialize_data(&data);
+	if (read_cub_file(fd, &data) == -1)
+		return (print_error("", -1, NULL));
+	fd = close(fd);
+	if (fd == -1)
+		return (print_error("Failed to close cub file", -1, NULL));
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 19:26:52 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/26 22:58:02 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ typedef struct s_file {
 	int		is_east_texture;
 	int		is_floor;
 	int		is_ceiling;
+	int		over_identifier;
 	int		is_map;
 }	t_file;
 
 typedef struct s_map {
-	int		dir;
+	int		character_x;
+	int		character_y;
+	int		view_dir;
 	int		width;
 	int		height;
 	int		**map;
@@ -62,9 +65,9 @@ enum e_bool {
 };
 
 // utils.c
+int		free_2d_array(char **ptr, int return_value);
 int		check_extension(char *av, const char *extension);
 int		print_error(char *msg, int return_value, char **ptr);
-int		free_all(char *msg, int return_value, t_data **data);
 void	skip_space(char **line);
 char	*newline_to_null(char *line);
 

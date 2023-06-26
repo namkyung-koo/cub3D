@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 19:28:20 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/26 22:59:23 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,12 @@ static int	save_texture_path(t_data **data, char **temp)
 	char	*texture;
 
 	if (open(temp[1], O_RDONLY) == -1)
-	{
-		perror("Failed to open texture file ");
-		return (-1);
-	}
+		return (print_error("Failed to open texture file", -1, NULL));
 	if (check_extension(temp[1], "xpm") == -1)
-		return (print_error("The texture's extension must be xpm.", -1, temp));
+		return (print_error("The texture's extension must be xpm.", -1, NULL));
 	texture = (char *)malloc(sizeof(char) * ft_strlen(temp[1]));
 	if (texture == NULL)
-		return (print_error("Failed to allocate memory.", -1, temp));
+		return (print_error("Failed to allocate memory.", -1, NULL));
 	if ((*data)->file.is_north_texture == 1 && (!(*data)->no_texture_path))
 		(*data)->no_texture_path = texture;
 	else if ((*data)->file.is_south_texture == 1 && (!(*data)->so_texture_path))
@@ -97,22 +94,25 @@ int	fill_identifier(t_data **data, char **line)
 	if (temp == NULL)
 		return (print_error("Failed to split a line.", -1, NULL));
 	if (temp[0] == NULL || temp[1] == NULL || temp[2] != NULL)
-		return (print_error("", -1, temp));
+		return (free_2d_array(temp, -1));
 	find_identified(data, temp[0]);
+	// NO ~
+	// C
+	// identifier_data 윗 부분부터
 	if ((*data)->file.is_north_texture == 1 || \
 	(*data)->file.is_south_texture == 1 \
 	|| (*data)->file.is_east_texture == 1 || (*data)->file.is_west_texture == 1)
 	{
 		if (save_texture_path(data, temp) == -1)
-			return (-1);
+			return (free_2d_array(temp, -1));
 	}
-	else if ((*data)->file.is_floor == 1 || (*data)->file.is_ceiling == 1)
+	if ((*data)->file.is_floor == 1 || (*data)->file.is_ceiling == 1)
 	{
 		if (save_rgb_color(data, temp) == -1)
-			return (print_error("", -1, temp));
+			return (free_2d_array(temp, -1));
 	}
-	free(temp);
+	free_2d_array(temp);
 	if (check_identifier(data))
-		(*data)->file.is_map = TRUE;
+		(*data)->file.over_identifier = TRUE;
 	return (0);
 }
