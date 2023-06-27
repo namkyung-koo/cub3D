@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   identifier_data.c                                  :+:      :+:    :+:   */
+/*   identifier_part.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 16:43:27 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 18:41:18 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static int	save_texture_path(t_data **data, char **temp)
 	char	*texture;
 
 	if (open(temp[1], O_RDONLY) == -1)
-		return (print_error("Failed to open texture file", -1, NULL));
+		return (print_error("Failed to open \"texture file.\"", -1, NULL));
 	if (check_extension(temp[1], "xpm") == -1)
-		return (print_error("The texture's extension must be xpm.", -1, NULL));
+		return (print_error("The texture's extension must be \"xpm.\"", -1, NULL));
 	texture = (char *)malloc(sizeof(char) * ft_strlen(temp[1]));
 	if (texture == NULL)
 		return (print_error("Failed to allocate memory.", -1, NULL));
@@ -59,7 +59,7 @@ static int	save_rgb_color(t_data **data, char **temp)
 
 	rgb = ft_split(temp[1], ',');
 	if (rgb == NULL)
-		return (print_error("Failed to split a rgb part.", -1, NULL));
+		return (print_error("Failed to split a \"rgb part.\"", -1, NULL));
 	if (rgb[0] == NULL || rgb[1] == NULL || rgb[2] == NULL || rgb[3] != NULL)
 		return (free_2d_array(rgb, -1));
 	r = ft_atoi(rgb[0]);
@@ -107,8 +107,7 @@ int	fill_identifier(t_data **data, char **line)
 		if (save_rgb_color(data, temp) == -1)
 			return (free_2d_array(temp, -1));
 	}
-	free_2d_array(temp);
 	if (check_identifier(data))
 		(*data)->file.over_identifier = TRUE;
-	return (0);
+	return (free_2d_array(temp, 0));
 }

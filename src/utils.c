@@ -6,17 +6,16 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/26 22:43:22 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 18:35:56 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	print_error(char *msg, int return_value, char **ptr)
+int	print_error(char *msg, int return_value, char *ptr)
 {
-	if (*ptr != NULL)
-		free(*ptr);
-	*ptr = NULL;
+	if (ptr != NULL)
+		free(ptr);
 	ft_putendl_fd("Error", 2);
 	ft_putendl_fd(msg, 2);
 	return (return_value);
@@ -70,7 +69,7 @@ char	*newline_to_null(char *line)
 	int	i;
 
 	i = 0;
-	while (*(line + i) != '\n' || *(line + i) != '\0')
+	while (*(line + i) != '\n' && *(line + i) != '\0')
 		i++;
 	if (*(line + i) == '\n')
 		*(line + i) = '\0';

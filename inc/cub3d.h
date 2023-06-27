@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/26 22:58:02 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 18:33:50 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
 # include "../libft/libft.h"
 
 typedef struct s_file {
@@ -39,6 +37,7 @@ typedef struct s_map {
 	int		height;
 	int		**map;
 	char	**prototype;
+	t_list	**temp;
 }	t_map;
 
 typedef struct s_data {
@@ -67,18 +66,21 @@ enum e_bool {
 // utils.c
 int		free_2d_array(char **ptr, int return_value);
 int		check_extension(char *av, const char *extension);
-int		print_error(char *msg, int return_value, char **ptr);
+int		print_error(char *msg, int return_value, char *ptr);
 void	skip_space(char **line);
 char	*newline_to_null(char *line);
 
-// cub_validation.c
+// file_validation.c
 int		open_cub_file(const char *cub_file, t_data *data);
 
-// identifier_data.c
+// identifier_part.c
 int		check_identifier(t_data **data);
 int		fill_identifier(t_data **data, char **line);
 
-// map_data.c
+// middle_part.c
 int		fill_map(t_data **data, char **line);
+
+// map_part.c
+void	check_map_data(t_data *data);
 
 #endif

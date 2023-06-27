@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_validation.c                                   :+:      :+:    :+:   */
+/*   file_validation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 17:28:50 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 18:40:26 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	read_cub_file(int fd, t_data **data)
 			break ;
 		line = newline_to_null(line);
 		if (manipulate_line(data, &line) == -1)
-			return (print_error("File contents are invaild.", -1, &line));
+			return (print_error("File contents are invaild.", -1, line));
 		free(line);
 	}
 	return (0);
@@ -58,7 +58,7 @@ int	open_cub_file(const char *cub_file, t_data *data)
 
 	fd = open(cub_file, O_RDONLY);
 	if (fd == -1)
-		return (print_error("Failed to open cub file", -1, NULL));
+		return (print_error("Failed to open \"cub file\"", -1, NULL));
 	initialize_data(&data);
 	if (read_cub_file(fd, &data) == -1)
 	{
@@ -67,6 +67,6 @@ int	open_cub_file(const char *cub_file, t_data *data)
 	}
 	fd = close(fd);
 	if (fd == -1)
-		return (print_error("Failed to close cub file", -1, NULL));
+		return (print_error("Failed to close \"cub file\"", -1, NULL));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:54:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/22 22:11:00 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 18:27:52 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_atoi(const char *str)
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
-			return (print_error("Negative numbers are not allowed.", -1, NULL));
+			return (-1);
 		str++;
 	}
 	if (*str == '\0')
-		return (print_error("There are invaild arguments.", -1, NULL));
+		return (-1);
 	res = 0;
 	while ('0' <= *str && *str <= '9')
 	{
@@ -33,8 +33,8 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	if (*str != '\0')
-		return (print_error("There are invaild arguments.", -1, NULL));
+		return (-1);
 	if (res > 255)
-		return (print_error("RGB must be less than 256.", -1, NULL));
+		return (-1);
 	return (res);
 }
