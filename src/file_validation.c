@@ -6,11 +6,17 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 18:40:26 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 22:59:09 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	skip_space(char **line)
+{
+	while ((**line) == ' ')
+		(*line)++;
+}
 
 static void	initialize_data(t_data **data)
 {
@@ -65,6 +71,7 @@ int	open_cub_file(const char *cub_file, t_data *data)
 		close(fd);
 		return (-1);
 	}
+	check_map_data(&data);
 	fd = close(fd);
 	if (fd == -1)
 		return (print_error("Failed to close \"cub file\"", -1, NULL));

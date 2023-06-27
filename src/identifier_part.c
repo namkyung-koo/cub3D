@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 18:41:18 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 23:21:38 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ static int	save_texture_path(t_data **data, char **temp)
 
 	if (open(temp[1], O_RDONLY) == -1)
 		return (print_error("Failed to open \"texture file.\"", -1, NULL));
+	while (*(temp[1]) == '.')
+		temp[1]++;
 	if (check_extension(temp[1], "xpm") == -1)
-		return (print_error("The texture's extension must be \"xpm.\"", -1, NULL));
+		return (print_error("The texture's extension must be xpm.", -1, NULL));
 	texture = (char *)malloc(sizeof(char) * ft_strlen(temp[1]));
 	if (texture == NULL)
 		return (print_error("Failed to allocate memory.", -1, NULL));
@@ -109,5 +111,9 @@ int	fill_identifier(t_data **data, char **line)
 	}
 	if (check_identifier(data))
 		(*data)->file.over_identifier = TRUE;
-	return (free_2d_array(temp, 0));
+	// return (free_2d_array(temp, 0));
+	// 동적 할당 안해서 주소값 다 잃어버린듯
+	// printf("%s%s%s%s", (*data)->no_texture_path, (*data)->so_texture_path, \
+	(*data)->we_texture_path, (*data)->ea_texture_path);
+	return (0);
 }

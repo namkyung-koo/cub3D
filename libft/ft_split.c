@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:07:25 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/31 19:58:08 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 21:41:51 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	**ft_free_func(char	**str)
 	return (NULL);
 }
 
-static char	*ft_strndup(char const *src, size_t n)
+static char	*ft_strndup_s(char const *src, size_t n)
 {
 	size_t	i;
 	char	*copy;
@@ -70,7 +70,7 @@ char	**ft_slice_str(char	**split, char const *s, char c)
 			first = cur + 1;
 		else if (!(ft_ischr(s[cur], c)) && ft_ischr(s[cur + 1], c))
 		{
-			split[i] = ft_strndup(&s[first], cur - first + 1);
+			split[i] = ft_strndup_s(&s[first], cur - first + 1);
 			if (split[i] == NULL)
 				return (ft_free_func(split));
 			i++;

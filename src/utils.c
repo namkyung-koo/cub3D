@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 18:35:56 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 22:49:20 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ char	*newline_to_null(char *line)
 	return (line);
 }
 
-void	skip_space(char **line)
+void	error_and_exit(char *msg)
 {
-	while ((**line) == ' ')
-		(*line)++;
+	ft_putendl_fd("Error", 2);
+	ft_putendl_fd(msg, 2);
+	exit (1);
 }

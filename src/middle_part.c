@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 21:08:39 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 18:17:33 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 21:48:21 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ static int	is_map_part(t_data **data, char *line)
 		else if (line[i] == ' ')
 			i++;
 		else
-		{
-			ft_putendl_fd("Error\nFile contents are invalid", 2);
-			exit(1);
-		}
+			error_and_exit("File contents are invalid.");
 	}
 	return (0);
 }
@@ -41,20 +38,14 @@ static void	save_line_to_list(t_data **data, char *line)
 
 	if ((*data)->map_info.height == 0)
 	{
-		((*data)->map_info.temp) = (t_list **)malloc(sizeof(t_list *));
-		if ((*data)->map_info.temp == NULL)
-		{
-			ft_putendl_fd("Error\nFailed to allocate memory.", 2);
-			exit(1);
-		}
+		((*data)->map_info.list) = (t_list **)malloc(sizeof(t_list *));
+		if ((*data)->map_info.list == NULL)
+			error_and_exit("Failed to allocate memory.");
 	}
 	new = ft_lstnew(line);
 	if (new == NULL)
-	{
-		ft_putendl_fd("Error\nFailed to allocate memory.", 2);
-		exit(1);
-	}
-	ft_lstadd_back((*data)->map_info.temp, new);
+		error_and_exit("Failed to allocate memory.");
+	ft_lstadd_back((*data)->map_info.list, new);
 	(*data)->map_info.height++;
 }
 

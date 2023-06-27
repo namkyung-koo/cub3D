@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 18:33:50 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 21:47:07 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ typedef struct s_file {
 }	t_file;
 
 typedef struct s_map {
-	int		character_x;
-	int		character_y;
+	int		player;
+	int		player_x;
+	int		player_y;
 	int		view_dir;
 	int		width;
 	int		height;
 	int		**map;
-	char	**prototype;
-	t_list	**temp;
+	char	**array;
+	t_list	**list;
 }	t_map;
 
 typedef struct s_data {
@@ -67,7 +68,7 @@ enum e_bool {
 int		free_2d_array(char **ptr, int return_value);
 int		check_extension(char *av, const char *extension);
 int		print_error(char *msg, int return_value, char *ptr);
-void	skip_space(char **line);
+void	error_and_exit(char *msg);
 char	*newline_to_null(char *line);
 
 // file_validation.c
@@ -81,6 +82,6 @@ int		fill_identifier(t_data **data, char **line);
 int		fill_map(t_data **data, char **line);
 
 // map_part.c
-void	check_map_data(t_data *data);
+void	check_map_data(t_data **data);
 
 #endif

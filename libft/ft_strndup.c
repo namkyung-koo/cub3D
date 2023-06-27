@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 23:04:48 by nakoo            ###   ########.fr       */
+/*   Created: 2023/06/27 21:40:23 by nakoo             #+#    #+#             */
+/*   Updated: 2023/06/27 21:52:37 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-// void	leaks(void)
-// {
-// 	system("leaks cub3D");
-// }
-
-int	main(int ac, char **av)
+char	*ft_strndup(const char *src, size_t n)
 {
-	t_data	data;
+	char	*copy;
+	size_t	src_len;
+	size_t	i;
 
-	// atexit(leaks);
-	if (ac != 2)
-		return (print_error("The number of argument must be one.", 1, NULL));
-	if (check_extension(av[1], "cub") == -1)
-		return (print_error("The argument's extension must be cub.", 1, NULL));
-	if (open_cub_file(av[1], &data) == -1)
-		return (1);
-	return (0);
+	if (n <= 0)
+		return (NULL);
+	copy = (char *)malloc(sizeof(char) * (n + 1));
+	if (copy == NULL)
+		return (NULL);
+	src_len = ft_strlen(src);
+	i = 0;
+	while (i < n)
+	{
+		if (src_len <= i)
+			copy[i] = ' ';
+		else if (src_len > i)
+			copy[i] = src[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
 }
