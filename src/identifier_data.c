@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/26 22:59:23 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 16:43:27 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,17 @@ static int	save_rgb_color(t_data **data, char **temp)
 	if (rgb == NULL)
 		return (print_error("Failed to split a rgb part.", -1, NULL));
 	if (rgb[0] == NULL || rgb[1] == NULL || rgb[2] == NULL || rgb[3] != NULL)
-		return (print_error("Value of rgb entered wrongly.", -1, rgb));
+		return (free_2d_array(rgb, -1));
 	r = ft_atoi(rgb[0]);
 	g = ft_atoi(rgb[1]);
 	b = ft_atoi(rgb[2]);
 	if (r == -1 || g == -1 || b == -1)
-		return (print_error("", -1, rgb));
+		return (free_2d_array(rgb, -1));
 	if ((*data)->file.is_floor == 1 && (*data)->floor_rgb == -2)
 		(*data)->floor_rgb = ((r << 16) + (g << 8) + b);
 	else if ((*data)->file.is_ceiling == 1 && (*data)->ceiling_rgb == -2)
 		(*data)->ceiling_rgb = ((r << 16) + (g << 8) + b);
-	free(rgb);
-	return (0);
+	return (free_2d_array(rgb, 0));
 }
 
 int	check_identifier(t_data **data)
@@ -96,9 +95,6 @@ int	fill_identifier(t_data **data, char **line)
 	if (temp[0] == NULL || temp[1] == NULL || temp[2] != NULL)
 		return (free_2d_array(temp, -1));
 	find_identified(data, temp[0]);
-	// NO ~
-	// C
-	// identifier_data 윗 부분부터
 	if ((*data)->file.is_north_texture == 1 || \
 	(*data)->file.is_south_texture == 1 \
 	|| (*data)->file.is_east_texture == 1 || (*data)->file.is_west_texture == 1)

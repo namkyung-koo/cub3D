@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/26 22:39:15 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/27 17:28:50 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	manipulate_line(t_data **data, char **line)
 	if ((ft_strncmp(*line, "NO ", 3) == 0 || ft_strncmp(*line, "SO ", 3) == 0 \
 	|| ft_strncmp(*line, "WE ", 3) == 0 || ft_strncmp(*line, "EA ", 3) == 0 || \
 	ft_strncmp(*line, "F ", 2) == 0 || ft_strncmp(*line, "C ", 2) == 0) && \
-	(*data)->file.is_map == FALSE)
+	(*data)->file.over_identifier == FALSE)
 		return (fill_identifier(data, line));
-	else if ((*data)->file.is_map == TRUE)
+	else if ((*data)->file.over_identifier == TRUE)
 		return (fill_map(data, line));
 	return (0);
 }
@@ -61,7 +61,10 @@ int	open_cub_file(const char *cub_file, t_data *data)
 		return (print_error("Failed to open cub file", -1, NULL));
 	initialize_data(&data);
 	if (read_cub_file(fd, &data) == -1)
-		return (print_error("", -1, NULL));
+	{
+		close(fd);
+		return (-1);
+	}
 	fd = close(fd);
 	if (fd == -1)
 		return (print_error("Failed to close cub file", -1, NULL));
