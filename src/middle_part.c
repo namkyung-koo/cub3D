@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 21:08:39 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/28 18:29:14 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/28 22:20:36 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static void	save_line_to_list(t_data *data, char *line)
 		(data->map.lst) = (t_list **)malloc(sizeof(t_list *));
 		if (data->map.lst == NULL)
 			error_and_exit("Failed to allocate memory.");
+		(*(data->map.lst)) = NULL;
 	}
 	new = ft_lstnew(line);
 	if (new == NULL)

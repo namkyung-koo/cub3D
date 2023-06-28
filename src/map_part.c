@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:15:52 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/28 18:37:44 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/28 22:24:27 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ static void	duplicate_to_array(t_data *data)
 		error_and_exit("Failed to allocate memory.");
 	data->map.arr[data->map.height] = NULL;
 	measure_array_width(data);
+	printf("%d", data->map.width);
 	i = 0;
-	while (data->map.arr[i] && !(*(data->map.lst)))
+	while (data->map.arr[i] && *(data->map.lst) != NULL)
 	{
-		data->map.arr[i] = \
-		ft_strndup((*(data->map.lst))->content, data->map.width);
-		temp = (*(data->map.lst));
-		(*(data->map.lst)) = (*(data->map.lst))->next;
+		temp = *(data->map.lst);
+		data->map.arr[i] = ft_strndup(temp->content, data->map.width);
+		*(data->map.lst) = temp->next;
 		free(temp);
 		i++;
 	}

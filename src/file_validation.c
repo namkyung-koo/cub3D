@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/28 18:46:05 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/28 21:10:19 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ static int	manipulate_line(t_data *data, char *line)
 	if ((*line) == '\0')
 		return (0);
 	if (data->flag.over_identifier == FALSE && \
-	((ft_strncmp(line, "NO ", 3) == 0 && data->flag.is_north_texture == 0) \
-	|| (ft_strncmp(line, "SO ", 3) == 0 && data->flag.is_south_texture == 0) \
-	|| (ft_strncmp(line, "WE ", 3) == 0 && data->flag.is_west_texture == 0) \
-	|| (ft_strncmp(line, "EA ", 3) == 0 && data->flag.is_east_texture == 0) \
-	|| (ft_strncmp(line, "F ", 2) == 0 && data->flag.is_floor == 0) \
-	|| (ft_strncmp(line, "C ", 2) == 0 && data->flag.is_ceiling == 0)))
+	(ft_strncmp(line, "NO ", 3) == 0 || ft_strncmp(line, "SO ", 3) == 0 \
+	|| ft_strncmp(line, "WE ", 3) == 0 || ft_strncmp(line, "EA ", 3) == 0 \
+	|| ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0))
 		return (fill_identifier(data, line));
-	// else if (data->flag.over_identifier == TRUE)
-	// 	return (fill_map(data, line));
-	return (0);
+	else if (data->flag.over_identifier == TRUE && \
+	ft_strncmp(line, "NO ", 3) != 0 && ft_strncmp(line, "SO ", 3) != 0 \
+	&& ft_strncmp(line, "WE ", 3) != 0 && ft_strncmp(line, "EA ", 3) != 0 \
+	&& ft_strncmp(line, "F ", 2) != 0 && ft_strncmp(line, "C ", 2) != 0)
+		return (fill_map(data, line));
+	return (-1);
 }
 
 static int	read_cub_file(int fd, t_data *data)
@@ -57,10 +57,8 @@ static int	read_cub_file(int fd, t_data *data)
 		temp = line;
 		newline_to_null(temp);
 		if (manipulate_line(data, temp) == -1)
-		{
-			free(line);
-			return (-1);
-		}
+			return \
+			(print_error("The component of file entered wrongly.", -1, line));
 		free(line);
 	}
 	return (0);
@@ -72,7 +70,7 @@ int	open_cub_file(const char *cub_file, t_data *data)
 
 	fd = open(cub_file, O_RDONLY);
 	if (fd == -1)
-		return (print_error("Failed to open cub file", -1, NULL));
+		return (print_error("Failed to open CUB FILE", -1, NULL));
 	init_t_data(data);
 	if (read_cub_file(fd, data) == -1)
 	{
@@ -82,6 +80,6 @@ int	open_cub_file(const char *cub_file, t_data *data)
 	check_map_data(data);
 	fd = close(fd);
 	if (fd == -1)
-		return (print_error("Failed to close cub file", -1, NULL));
+		return (print_error("Failed to close CUB FILE", -1, NULL));
 	return (0);
 }
