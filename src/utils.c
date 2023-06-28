@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 22:49:20 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/28 17:13:38 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,22 @@ int	free_2d_array(char **ptr, int return_value)
 	return (return_value);
 }
 
-int	check_extension(char *av, const char *extension)
+int	check_extension(char *str, const char *extension)
 {
-	int	i;
 	int	flag;
+	int	i;
 
 	flag = 0;
 	i = 0;
-	while (av[i] != '\0')
+	while (str[i] == '.')
+		i++;
+	while (str[i] != '\0' && ft_isprint(str[i]) != 0)
 	{
-		if (av[i] == '.')
+		if (str[i] == '.')
 		{
 			flag = 1;
 			break ;
 		}
-		else if (ft_isprint(av[i]) == 0)
-			return (-1);
 		i++;
 	}
 	if (flag == 0)
@@ -58,13 +58,13 @@ int	check_extension(char *av, const char *extension)
 	else
 	{
 		++i;
-		if (ft_strcmp(&av[i], extension) != 0)
+		if (ft_strcmp(&str[i], extension) != 0)
 			return (-1);
 	}
 	return (0);
 }
 
-char	*newline_to_null(char *line)
+void	newline_to_null(char *line)
 {
 	int	i;
 
@@ -73,7 +73,6 @@ char	*newline_to_null(char *line)
 		i++;
 	if (*(line + i) == '\n')
 		*(line + i) = '\0';
-	return (line);
 }
 
 void	error_and_exit(char *msg)

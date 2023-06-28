@@ -6,11 +6,18 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 22:59:09 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/28 18:46:05 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	init_t_data(t_data *data)
+{
+	ft_memset(data, 0, sizeof(t_data));
+	data->floor_rgb = -2;
+	data->ceiling_rgb = -2;
+}
 
 static void	skip_space(char **line)
 {
@@ -18,41 +25,42 @@ static void	skip_space(char **line)
 		(*line)++;
 }
 
-static void	initialize_data(t_data **data)
+static int	manipulate_line(t_data *data, char *line)
 {
-	ft_memset((*data), 0, sizeof(t_data));
-	(*data)->floor_rgb = -2;
-	(*data)->ceiling_rgb = -2;
-}
-
-static int	manipulate_line(t_data **data, char **line)
-{
-	if ((*data)->file.over_identifier == FALSE)
-		skip_space(line);
-	if ((**line) == '\0')
+	if (data->flag.over_identifier == FALSE)
+		skip_space(&line);
+	if ((*line) == '\0')
 		return (0);
-	if ((ft_strncmp(*line, "NO ", 3) == 0 || ft_strncmp(*line, "SO ", 3) == 0 \
-	|| ft_strncmp(*line, "WE ", 3) == 0 || ft_strncmp(*line, "EA ", 3) == 0 || \
-	ft_strncmp(*line, "F ", 2) == 0 || ft_strncmp(*line, "C ", 2) == 0) && \
-	(*data)->file.over_identifier == FALSE)
+	if (data->flag.over_identifier == FALSE && \
+	((ft_strncmp(line, "NO ", 3) == 0 && data->flag.is_north_texture == 0) \
+	|| (ft_strncmp(line, "SO ", 3) == 0 && data->flag.is_south_texture == 0) \
+	|| (ft_strncmp(line, "WE ", 3) == 0 && data->flag.is_west_texture == 0) \
+	|| (ft_strncmp(line, "EA ", 3) == 0 && data->flag.is_east_texture == 0) \
+	|| (ft_strncmp(line, "F ", 2) == 0 && data->flag.is_floor == 0) \
+	|| (ft_strncmp(line, "C ", 2) == 0 && data->flag.is_ceiling == 0)))
 		return (fill_identifier(data, line));
-	else if ((*data)->file.over_identifier == TRUE)
-		return (fill_map(data, line));
+	// else if (data->flag.over_identifier == TRUE)
+	// 	return (fill_map(data, line));
 	return (0);
 }
 
-static int	read_cub_file(int fd, t_data **data)
+static int	read_cub_file(int fd, t_data *data)
 {
 	char	*line;
+	char	*temp;
 
 	while (42)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		line = newline_to_null(line);
-		if (manipulate_line(data, &line) == -1)
-			return (print_error("File contents are invaild.", -1, line));
+		temp = line;
+		newline_to_null(temp);
+		if (manipulate_line(data, temp) == -1)
+		{
+			free(line);
+			return (-1);
+		}
 		free(line);
 	}
 	return (0);
@@ -64,16 +72,16 @@ int	open_cub_file(const char *cub_file, t_data *data)
 
 	fd = open(cub_file, O_RDONLY);
 	if (fd == -1)
-		return (print_error("Failed to open \"cub file\"", -1, NULL));
-	initialize_data(&data);
-	if (read_cub_file(fd, &data) == -1)
+		return (print_error("Failed to open cub file", -1, NULL));
+	init_t_data(data);
+	if (read_cub_file(fd, data) == -1)
 	{
 		close(fd);
 		return (-1);
 	}
-	check_map_data(&data);
+	check_map_data(data);
 	fd = close(fd);
 	if (fd == -1)
-		return (print_error("Failed to close \"cub file\"", -1, NULL));
+		return (print_error("Failed to close cub file", -1, NULL));
 	return (0);
 }

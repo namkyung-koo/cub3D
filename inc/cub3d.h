@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 21:47:07 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/28 18:34:39 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include "../libft/libft.h"
 
-typedef struct s_file {
+typedef struct s_flag {
 	int		is_north_texture;
 	int		is_south_texture;
 	int		is_west_texture;
@@ -27,7 +27,7 @@ typedef struct s_file {
 	int		is_ceiling;
 	int		over_identifier;
 	int		is_map;
-}	t_file;
+}	t_flag;
 
 typedef struct s_map {
 	int		player;
@@ -36,9 +36,9 @@ typedef struct s_map {
 	int		view_dir;
 	int		width;
 	int		height;
-	int		**map;
-	char	**array;
-	t_list	**list;
+	int		**frame;
+	char	**arr;
+	t_list	**lst;
 }	t_map;
 
 typedef struct s_data {
@@ -48,8 +48,8 @@ typedef struct s_data {
 	char	*ea_texture_path;
 	int		floor_rgb;
 	int		ceiling_rgb;
-	t_map	map_info;
-	t_file	file;
+	t_map	map;
+	t_flag	flag;
 }	t_data;
 
 enum e_direction {
@@ -66,22 +66,22 @@ enum e_bool {
 
 // utils.c
 int		free_2d_array(char **ptr, int return_value);
-int		check_extension(char *av, const char *extension);
+int		check_extension(char *str, const char *extension);
 int		print_error(char *msg, int return_value, char *ptr);
 void	error_and_exit(char *msg);
-char	*newline_to_null(char *line);
+void	newline_to_null(char *line);
 
 // file_validation.c
 int		open_cub_file(const char *cub_file, t_data *data);
 
 // identifier_part.c
-int		check_identifier(t_data **data);
-int		fill_identifier(t_data **data, char **line);
+int		check_identifier(t_data *data);
+int		fill_identifier(t_data *data, char *line);
 
 // middle_part.c
-int		fill_map(t_data **data, char **line);
+int		fill_map(t_data *data, char *line);
 
 // map_part.c
-void	check_map_data(t_data **data);
+void	check_map_data(t_data *data);
 
 #endif
