@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:15:52 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/29 18:37:00 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 19:59:15 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,5 +134,7 @@ void	check_map_data(t_data *data)
 				error_and_exit("please, check the component of map.");
 		}
 	}
+	if (data->map.player == 0)
+		error_and_exit("Player doesn't exist.");
 	chararr_to_intarr(data);
 }
