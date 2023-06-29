@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/29 15:33:57 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 18:22:03 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	read_cub_file(int fd, t_data *data)
 		newline_to_null(temp);
 		if (manipulate_line(data, temp) == -1)
 			return \
-			(print_error("The component of file entered wrongly.", -1, line));
+			(print_error("The file's format entered wrongly.", -1, line));
 		free(line);
 	}
 	return (0);

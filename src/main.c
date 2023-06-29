@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/29 17:41:55 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 17:49:08 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	display_data(t_data *data)
 	printf("플레이어 수 : %d\n", data->map.player);
 	printf("x좌표 : %d(인덱스)\ny좌표 : %d(인덱스)\n", data->map.player_x, data->map.player_y);
 	printf("view_dir : %d width : %d height : %d\n", data->map.view_dir, data->map.width, data->map.height);
-	printf("\n<----------MAP---------->\n");
+	printf("\n     <----------MAP---------->\n");
 	for (int i = 0; i < data->map.height; i++)
 	{
 		for (int j = 0; j < data->map.width; j++)

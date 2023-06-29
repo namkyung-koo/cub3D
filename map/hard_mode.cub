@@ -1,15 +1,15 @@
 
-      NO       ./map/texture/ball.xpm
-SO ./map/texture/ball.xpm
+SO ./map/texture/south_texture.xpm
 
 
 C       200,244,255
-WE                                ./map/texture/ball.xpm
-EA                ./map/texture/ball.xpm
+EA                ./map/texture/east_texture.xpm
 
 F      168,153,198
+WE                                ./map/texture/west_texture.xpm
 
 
+      NO       ./map/texture/north_texture.xpm
 
 
             11111111111111111111

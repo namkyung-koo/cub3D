@@ -1,12 +1,9 @@
 
 F 220,100,0
 C 225,30,0
-NO ./map/texture/ball.xpm
+NO ./map/texture/north_texture.xpm
 
 
-SO ./map/texture/ball.xpm
-WE ./map/texture/ball.xpm
-EA ./map/texture/ball.xpm
 
         1111111111111111111111111
         1000000000110000000000001
@@ -23,3 +20,7 @@ EA ./map/texture/ball.xpm
 11110111 1110101 101111010001
 11111111 1111111 111111111111
 
+
+SO ./map/texture/south_texture.xpm
+WE ./map/texture/west_texture.xpm
+EA ./map/texture/east_texture.xpm
