@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:15:52 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/29 17:41:25 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 18:37:00 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	duplicate_to_array(t_data *data)
 		del_node = temp;
 		data->map.arr[i] = ft_strndup(temp->content, data->map.width);
 		temp = temp->next;
+		free(del_node->content);
 		free(del_node);
 		i++;
 	}

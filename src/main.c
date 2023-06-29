@@ -6,33 +6,28 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/29 17:49:08 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 18:41:01 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// static void	free_heap_section(t_data *data)
-// {
-// 	int	i;
+static void	free_heap_section(t_data *data)
+{
+	int	i;
 
-// 	i = 0;
-// 	free(data->no_texture_path);
-// 	free(data->so_texture_path);
-// 	free(data->we_texture_path);
-// 	free(data->ea_texture_path);
-// 	while (i < data->map.height)
-// 	{
-// 		free(data->map.frame[i]);
-// 		i++;
-// 	}
-// 	free(data->map.frame);
-// }
-
-// void	leaks(void)
-// {
-// 	system("leaks cub3D");
-// }
+	i = 0;
+	free(data->no_texture_path);
+	free(data->so_texture_path);
+	free(data->we_texture_path);
+	free(data->ea_texture_path);
+	while (i < data->map.height)
+	{
+		free(data->map.frame[i]);
+		i++;
+	}
+	free(data->map.frame);
+}
 
 static void	display_data(t_data *data)
 {
@@ -47,7 +42,7 @@ static void	display_data(t_data *data)
 	printf("플레이어 수 : %d\n", data->map.player);
 	printf("x좌표 : %d(인덱스)\ny좌표 : %d(인덱스)\n", data->map.player_x, data->map.player_y);
 	printf("view_dir : %d width : %d height : %d\n", data->map.view_dir, data->map.width, data->map.height);
-	printf("\n     <----------MAP---------->\n");
+	printf("\n-----------------< MAP >----------------\n\n");
 	for (int i = 0; i < data->map.height; i++)
 	{
 		for (int j = 0; j < data->map.width; j++)
@@ -55,6 +50,11 @@ static void	display_data(t_data *data)
 		printf(".\n");
 	}
 }
+
+// void	leaks(void)
+// {
+// 	system("leaks cub3D");
+// }
 
 int	main(int ac, char **av)
 {
@@ -68,6 +68,6 @@ int	main(int ac, char **av)
 	if (open_cub_file(av[1], &data) == -1)
 		return (1);
 	display_data(&data);
-	// free_heap_section(&data);
+	free_heap_section(&data);
 	return (0);
 }

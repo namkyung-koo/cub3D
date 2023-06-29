@@ -1,5 +1,5 @@
 NAME = cub3D
-CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP -g -fsanitize=address
+CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP
 INC_DIR = inc
 SRC_DIR = src
 SRCS = main.c utils.c file_validation.c identifier_part.c map_part.c middle_part.c
