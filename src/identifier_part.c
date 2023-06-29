@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:56:30 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/28 21:18:12 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 15:38:58 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	save_texture_path(t_data *data, char **temp)
 		error_and_exit("Failed to close TEXTURE FILE.");
 	if (check_extension(temp[1], "xpm") == -1)
 		return (print_error("The texture's extension must be xpm.", -1, NULL));
-	texture = (char *)malloc(sizeof(char) * (ft_strlen(temp[1]) + 1));
+	texture = ft_strdup(temp[1]);
 	if (texture == NULL)
 		return (print_error("Failed to allocate memory.", -1, NULL));
 	if (data->flag.is_north_texture == 1 && !(data->no_texture_path))

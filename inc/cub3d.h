@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/28 18:34:39 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 13:34:18 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_map {
 	int		height;
 	int		**frame;
 	char	**arr;
-	t_list	**lst;
+	t_list	*list;
 }	t_map;
 
 typedef struct s_data {

@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:52 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/27 21:41:11 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 14:26:25 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@
 
 # define BUFFER_SIZE 2048
 
+typedef struct s_node
+{
+	char			*content;
+	struct s_node	*next;
+}	t_node;
+
 typedef struct s_list
 {
-	void			*content;
-	struct s_list	*next;
+	int		node_count;
+	t_node	head_node;
 }	t_list;
 
 /* libft */
@@ -36,7 +42,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-int		ft_lstsize(t_list *lst);
 
 void	ft_bzero(void *s, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -44,17 +49,14 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
+void	ft_lstclear(t_list *list);
+void	ft_lstadd_back(t_list *list, t_node *new);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
@@ -72,9 +74,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_node	*ft_lstnew(char *content);
+t_node	*ft_lstlast(t_node *node);
+
+t_list	*ft_lstcreate(void);
 
 /* get_next_line */
 char	*get_next_line(int fd);

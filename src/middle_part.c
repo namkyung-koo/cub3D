@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 21:08:39 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/28 22:20:36 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 15:34:33 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,20 @@ static int	is_map_part(t_data *data, char *line)
 
 static void	save_line_to_list(t_data *data, char *line)
 {
-	t_list	*new;
+	char	*temp;
+	t_node	*new;
 
-	if (data->map.height == 0)
+	if (data->map.list == NULL)
 	{
-		(data->map.lst) = (t_list **)malloc(sizeof(t_list *));
-		if (data->map.lst == NULL)
+		data->map.list = ft_lstcreate();
+		if (data->map.list == NULL)
 			error_and_exit("Failed to allocate memory.");
-		(*(data->map.lst)) = NULL;
 	}
-	new = ft_lstnew(line);
+	temp = ft_strdup(line);
+	new = ft_lstnew(temp);
 	if (new == NULL)
 		error_and_exit("Failed to allocate memory.");
-	ft_lstadd_back(data->map.lst, new);
-	data->map.height++;
+	ft_lstadd_back(data->map.list, new);
 }
 
 int	fill_map(t_data *data, char *line)

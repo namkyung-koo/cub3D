@@ -6,17 +6,17 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:39:28 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/31 19:48:39 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/29 15:07:07 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_node	*ft_lstlast(t_node *node)
 {
-	if (lst == NULL)
+	if (node == NULL)
 		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	while (node->next != NULL)
+		node = node->next;
+	return (node);
 }
