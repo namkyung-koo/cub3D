@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 17:39:30 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 20:14:30 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	free_heap_section(t_data *data)
-{
-	int	i;
+// static void	free_heap_section(t_data *data)
+// {
+// 	int	i;
 
-	i = 0;
-	free(data->no_texture_path);
-	free(data->so_texture_path);
-	free(data->we_texture_path);
-	free(data->ea_texture_path);
-	while (i < data->map.height)
-	{
-		free(data->map.frame[i]);
-		i++;
-	}
-	free(data->map.frame);
-}
+// 	i = 0;
+// 	free(data->no_texture_path);
+// 	free(data->so_texture_path);
+// 	free(data->we_texture_path);
+// 	free(data->ea_texture_path);
+// 	while (i < data->map.height)
+// 	{
+// 		free(data->map.frame[i]);
+// 		i++;
+// 	}
+// 	free(data->map.frame);
+// }
 
 static void	display_data(t_data *data)
 {
@@ -66,13 +66,14 @@ int	main(int ac, char **av)
 		return (print_error("The argument's extension must be cub.", 1, NULL));
 	if (open_cub_file(av[1], &data) == -1)
 		return (1);
-	if (open_cub_file(av[1], &data) == -1)
-		return (1);
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, screenWidth, screenHeight, "cub3D");
-	set_data(&data);
-	data.screen_img.img = mlx_new_image(data.mlx, screenWidth, screenHeight);
-	data.screen_img.data = (int *)mlx_get_data_addr(data.screen_img.img, &data.screen_img.bpp, &data.screen_img.size, &data.screen_img.endian);
-	ft_mlx_loop(&data);
+	display_data(&data);
+	// if (open_cub_file(av[1], &data) == -1)
+	// 	return (1);
+	// data.mlx = mlx_init();
+	// data.win = mlx_new_window(data.mlx, screenWidth, screenHeight, "cub3D");
+	// set_data(&data);
+	// data.screen_img.img = mlx_new_image(data.mlx, screenWidth, screenHeight);
+	// data.screen_img.data = (int *)mlx_get_data_addr(data.screen_img.img, &data.screen_img.bpp, &data.screen_img.size, &data.screen_img.endian);
+	// ft_mlx_loop(&data);
 	return (0);
 }

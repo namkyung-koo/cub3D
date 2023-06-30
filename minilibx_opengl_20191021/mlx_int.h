@@ -19,7 +19,7 @@ typedef int (*func_t)();
 
 /* structs */
 
-typedef struct	glsl_data_s
+typedef struct	glsl_info_s
 {
   GLuint	pixel_vshader;
   GLuint	pixel_fshader;
@@ -47,7 +47,7 @@ typedef struct	glsl_data_s
   GLint		loc_font_posinwin;
   GLint		loc_font_posinatlas;
   GLint		loc_font_atlassize;
-} glsl_data_t;
+} glsl_info_t;
 
 
 typedef struct	mlx_img_list_s
@@ -92,7 +92,7 @@ typedef struct		mlx_ptr_s
 
 // proto
 
-int	mlx_shaders(glsl_data_t *glsl);
+int	mlx_shaders(glsl_info_t *glsl);
 char    **mlx_int_str_to_wordtab(char *str);
 int     mlx_int_str_str(char *str,char *find,int len);
 int     mlx_int_str_str_cote(char *str,char *find,int len);

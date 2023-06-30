@@ -30,7 +30,7 @@
 {
   NSWindowEvent		*win;
   NSOpenGLContext	*ctx;
-  glsl_data_t		glsl;
+  glsl_info_t		glsl;
   int			openglwin;
 
   int			size_x;

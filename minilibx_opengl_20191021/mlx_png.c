@@ -50,7 +50,7 @@ char *(mipng_err[]) =
   "Unknown scanline filter"
 };
 
-typedef struct png_data_s
+typedef struct png_info_s
 {
   unsigned int	width;
   unsigned int	height;
@@ -58,7 +58,7 @@ typedef struct png_data_s
   int		color;
   int		interlace;
   int		bpp;
-} png_data_t;
+} png_info_t;
 
 
 int	mipng_is_type(unsigned char *ptr, char *type)
@@ -105,7 +105,7 @@ unsigned char (*(mipng_defilter[]))(unsigned char *buff, int pos, int a, int b, 
 };
 
 // only work for mlx mac or img 32bpp
-int	mipng_fill_img(mlx_img_list_t *img, unsigned char *buf, png_data_t *pi)
+int	mipng_fill_img(mlx_img_list_t *img, unsigned char *buf, png_info_t *pi)
 {
   unsigned int	current_filter;
   int	ipos;
@@ -158,7 +158,7 @@ int	mipng_fill_img(mlx_img_list_t *img, unsigned char *buf, png_data_t *pi)
 }
 
 
-int	mipng_data(mlx_img_list_t *img, unsigned char *dat, png_data_t *pi)
+int	mipng_data(mlx_img_list_t *img, unsigned char *dat, png_info_t *pi)
 {
   unsigned int	len;
   int		b_pos;
@@ -318,7 +318,7 @@ int	mipng_structure(unsigned char *ptr, int size, unsigned char **hdr, unsigned 
 }
 
 
-int	mipng_verif_hdr(unsigned char *hdr, png_data_t *pi)
+int	mipng_verif_hdr(unsigned char *hdr, png_info_t *pi)
 {
   unsigned int	compress;
   unsigned int	filter;
@@ -339,7 +339,7 @@ int	mipng_verif_hdr(unsigned char *hdr, png_data_t *pi)
     pi->bpp *= 3;
   if (pi->color == 6)
     pi->bpp *= 4;
-  //  printf("hdr data : %d x %d, depth %d, col type %d, comp %d, filter %d, interlace %d\nbpp is %d\n",
+  //  printf("hdr info : %d x %d, depth %d, col type %d, comp %d, filter %d, interlace %d\nbpp is %d\n",
   //	 pi->width, pi->height, pi->depth, pi->color, compress, filter, pi->interlace, pi->bpp);
   return (0);
 }
@@ -350,7 +350,7 @@ mlx_img_list_t	*mlx_int_parse_png(mlx_ptr_t *xvar, unsigned char *fptr, int size
   int		err;
   unsigned char *hdr;
   unsigned char *dat;
-  png_data_t	pi;
+  png_info_t	pi;
   mlx_img_list_t *img;
 
   if ((err = mipng_magic(fptr, size)))

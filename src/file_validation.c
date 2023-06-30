@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 16:52:14 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/30 20:15:08 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ static void	is_empty_file(const char *cub_file)
 	fd = open(cub_file, O_RDONLY);
 	byte = read(fd, temp, 1);
 	if (byte == 0)
+	{
+		close(fd);
 		error_and_exit("The cub file is empty.");
+	}
+	close(fd);
 }
 
 static int	manipulate_line(t_data *data, char *line)
