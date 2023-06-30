@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:51:31 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 17:18:00 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/26 22:43:22 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,17 @@ int	print_error(char *msg, int return_value, char **ptr)
 	return (return_value);
 }
 
-int	free_all(char *msg, int return_value, t_data **data)
+int	free_2d_array(char **ptr, int return_value)
 {
-	if ((*data)->no_texture_path != NULL)
-		free((*data)->no_texture_path);
-	if ((*data)->so_texture_path != NULL)
-		free((*data)->so_texture_path);
-	if ((*data)->we_texture_path != NULL)
-		free((*data)->we_texture_path);
-	if ((*data)->ea_texture_path != NULL)
-		free((*data)->ea_texture_path);
-	if ((*data)->map_info.prototype != NULL)
-		free((*data)->map_info.prototype);
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(msg, 2);
+	int	i;
+
+	i = 0;
+	while (ptr[i] != NULL)
+	{
+		free(ptr[i]);
+		i++;
+	}
+	free(ptr);
 	return (return_value);
 }
 
@@ -73,7 +70,7 @@ char	*newline_to_null(char *line)
 	int	i;
 
 	i = 0;
-	while (*(line + i) != '\n' || (*line + i) != '\0')
+	while (*(line + i) != '\n' || *(line + i) != '\0')
 		i++;
 	if (*(line + i) == '\n')
 		*(line + i) = '\0';

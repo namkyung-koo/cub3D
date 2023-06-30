@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 21:08:39 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/23 19:37:31 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/26 22:47:55 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ int	fill_map(t_data **data, char **line)
 	// NSWE가 하나만 있는지 확인 => 없거나 중복은 에러
 	// 맵이 벽으로 둘러 싸여있는지 확인
 	// int **map 배열로 넘겨주기(ascii code)
+	// over_identifier == FALSE면 , skip_space => OK && 개행 => OK
+	// over_identifier == TRUE면 , skip_space => NO && 개행 => OK 
+	// over_identifier == TRUE && is_map == TRUE면, skip_space => NO && 개행 => NO 
 	return (0);
 }

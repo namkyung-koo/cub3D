@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/26 22:44:31 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 17:08:19 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ int	main(int ac, char **av)
 		return (1);
 	info.mlx = mlx_init();
 	info.win = mlx_new_window(info.mlx, screenWidth, screenHeight, "cub3D");
-	set_info(&info);
+	set_info(&info, &data);
 	info.screen_img.img = mlx_new_image(info.mlx, screenWidth, screenHeight);
 	info.screen_img.data = (int *)mlx_get_data_addr(info.screen_img.img, &info.screen_img.bpp, &info.screen_img.size, &info.screen_img.endian);
+	ft_mlx_loop(&info);
 	return (0);
 }
