@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 17:16:48 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 17:23:04 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,65 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include "../libft/libft.h"
+
+# define X_EVENT_KEY_PRESS 2
+# define X_EVENT_KEY_EXIT 17
+
+typedef struct s_texture{
+	int	tex_num;
+
+}	t_texture;
+
+
+typedef struct s_ray{
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+	int		map_x;
+	int		map_y;
+	double	sidedist_x;
+	double	sidedist_y;
+	double	deltadist_x;
+	double	deltadist_y;
+	double	perpwalldist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	int		start_point;
+	int		end_point;
+	int		tex_num;
+}	t_ray;
+
+typedef struct s_image{
+	void	*img;
+	int		*data;
+	int		img_width;
+	int		img_height;
+	int		size;
+	int		bpp;
+	int		endian;
+}	t_image;
+
+typedef struct s_player {
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+
+}	t_player;
+
+typedef struct s_info {
+	void		*mlx;
+	void		*win;
+	t_player	player;
+	t_image		screen_img;
+	t_ray		ray;
+	int			**texture;
+}	t_info;
 
 typedef struct s_file {
 	int		is_north_texture;
