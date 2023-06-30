@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 17:06:56 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/30 17:14:07 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,11 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	// atexit(leaks);
 	if (ac != 2)
 		return (print_error("The number of argument must be one.", 1, NULL));
 	if (check_extension(av[1], "cub") == -1)
 		return (print_error("The argument's extension must be cub.", 1, NULL));
 	if (open_cub_file(av[1], &data) == -1)
 		return (1);
-	display_data(&data);
-	free_heap_section(&data);
 	return (0);
 }

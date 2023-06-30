@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 16:31:59 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/30 17:16:48 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include "../libft/libft.h"
 
-typedef struct s_flag {
+typedef struct s_file {
 	int		is_north_texture;
 	int		is_south_texture;
 	int		is_west_texture;
@@ -59,6 +59,16 @@ enum e_direction {
 	EAST = 69
 };
 
+enum e_texture {
+	tex_height = 64,
+	tex_width = 64
+};
+
+enum e_screen {
+	screenWidth = 640,
+	screenHeight = 480
+};
+
 enum e_bool {
 	FALSE,
 	TRUE
@@ -90,5 +100,14 @@ void	init_t_data(t_data *data);
 void	get_height_and_width(t_data *data);
 void	duplicate_to_array(t_data *data);
 void	chararr_to_intarr(t_data *data);
+
+void	set_info(t_info *info, t_data *data);
+
+void	load_texture(t_info *info);
+void	make_texture_arr(t_info *info);
+
+void	calculate_wall(t_player *player, t_ray *ray);
+
+void	ft_mlx_loop(t_info *info);
 
 #endif
