@@ -11,18 +11,18 @@
 #include "font.c"
 
 
-void	do_loop_hook2(CFRunLoopTimerRef observer, void * info)
+void	do_loop_hook2(CFRunLoopTimerRef observer, void * data)
 {
-  ((mlx_ptr_t *)info)->loop_hook(((mlx_ptr_t *)info)->loop_hook_data);
+  ((mlx_ptr_t *)data)->loop_hook(((mlx_ptr_t *)data)->loop_hook_data);
 }
 
 
-void do_loop_flush(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void * info)
+void do_loop_flush(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void * data)
 {
   mlx_ptr_t	*mlx_ptr;
   mlx_win_list_t *win;
 
-  mlx_ptr = (mlx_ptr_t *)info;
+  mlx_ptr = (mlx_ptr_t *)data;
   win = mlx_ptr->win_list;
   while (win)
     {
@@ -100,7 +100,7 @@ void *mlx_init()
 void mlx_loop(mlx_ptr_t *mlx_ptr)
 {
   CFRunLoopObserverRef observer;
-  CFRunLoopObserverContext ocontext = {.version = 0, .info = mlx_ptr, .retain = NULL, .release = NULL, .copyDescription = NULL};
+  CFRunLoopObserverContext ocontext = {.version = 0, .data = mlx_ptr, .retain = NULL, .release = NULL, .copyDescription = NULL};
 
   mlx_ptr->main_loop_active = 1;
 

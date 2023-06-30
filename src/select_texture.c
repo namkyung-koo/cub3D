@@ -6,15 +6,15 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:31:10 by jisulee           #+#    #+#             */
-/*   Updated: 2023/06/30 16:49:29 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 17:39:06 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	select_texture(t_info *info)
+void	select_texture(t_data *data)
 {
-	info->ray.tex_num = map
+	data->ray.tex_num = map
 
 	
 }

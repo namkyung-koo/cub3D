@@ -129,7 +129,7 @@ void	mlx_int_xpm_set_pixel(mlx_img_list_t *img, char *data, int opp, int col, in
 }
 
 
-void	*mlx_int_parse_xpm(mlx_ptr_t *xvar,void *info,int info_size,char *(*f)())
+void	*mlx_int_parse_xpm(mlx_ptr_t *xvar,void *data,int data_size,char *(*f)())
 {
   int	pos;
   char	*line;
@@ -157,7 +157,7 @@ void	*mlx_int_parse_xpm(mlx_ptr_t *xvar,void *info,int info_size,char *(*f)())
   img = 0;
   tab = 0;
   pos = 0;
-  if (!(line = f(info,&pos,info_size)) ||
+  if (!(line = f(data,&pos,data_size)) ||
       !(tab = mlx_int_str_to_wordtab(line)) || !(width = atoi(tab[0])) ||
       !(height = atoi(tab[1])) || !(nc = atoi(tab[2])) ||
       !(cpp = atoi(tab[3])) )
@@ -181,7 +181,7 @@ void	*mlx_int_parse_xpm(mlx_ptr_t *xvar,void *info,int info_size,char *(*f)())
   i = nc;
   while (i--)
     {
-      if (!(line = f(info,&pos,info_size)) ||
+      if (!(line = f(data,&pos,data_size)) ||
 	  !(tab = mlx_int_str_to_wordtab(line+cpp)) )
 	RETURN;
       j = 0;
@@ -224,7 +224,7 @@ void	*mlx_int_parse_xpm(mlx_ptr_t *xvar,void *info,int info_size,char *(*f)())
   data = img->buffer;
   while (i--)
     {
-      if (!(line = f(info,&pos,info_size)))
+      if (!(line = f(data,&pos,data_size)))
 	RETURN;
       x = 0;
       while (x<width)

@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:37:25 by jisulee           #+#    #+#             */
-/*   Updated: 2023/06/30 16:45:41 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 17:39:06 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,15 @@ void	dda_algorithms(t_ray *ray)
 	}
 }
 
-void	raycasting(t_info *info)
+void	raycasting(t_data *data)
 {
 	int	screen_x;
 	screen_x = 0;
 	while(screen_x < screenWidth)
 	{
-		set_ray(&(info->player), &(info->ray), screen_x);
-		dda_algorithms(&(info->ray));
-		calculate_wall(&(info->player), &(info->ray));
-		selcect_texture(info);
+		set_ray(&(data->player), &(data->ray), screen_x);
+		dda_algorithms(&(data->ray));
+		calculate_wall(&(data->player), &(data->ray));
+		selcect_texture(data);
 	}
 }

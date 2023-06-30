@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:19:59 by jisulee           #+#    #+#             */
-/*   Updated: 2023/06/30 16:56:11 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 17:42:32 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	set_player(t_player *player, t_map *map)
 {
 	t_map	map;
 
-	player->pos_x = map->character_x + 0.5;
-	player->pos_y = map->character_y + 0.5;
+	player->pos_x = map->player_x + 0.5;
+	player->pos_y = map->player_y + 0.5;
 	player->dir_x = 0;
 	player->dir_y = 0;
 	player->plane_x = 0;
@@ -49,9 +49,9 @@ void	set_player(t_player *player, t_map *map)
 	check_player(player, map);
 }
 
-void	set_info(t_info *info, t_data *data)
+void	set_data(t_data *data)
 {
-	set_player(&info->player, &data->map_info);
-	make_texture_arr(info);
-	load_texture(info);
+	set_player(&data->player, &data->map);
+	make_texture_arr(data);
+	load_texture(data);
 }

@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 17:23:04 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 17:39:38 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,6 @@ typedef struct s_player {
 
 }	t_player;
 
-typedef struct s_info {
-	void		*mlx;
-	void		*win;
-	t_player	player;
-	t_image		screen_img;
-	t_ray		ray;
-	int			**texture;
-}	t_info;
-
 typedef struct s_file {
 	int		is_north_texture;
 	int		is_south_texture;
@@ -101,14 +92,20 @@ typedef struct s_map {
 }	t_map;
 
 typedef struct s_data {
+	void		*mlx;
+	void		*win;
 	char	*no_texture_path;
 	char	*so_texture_path;
 	char	*we_texture_path;
 	char	*ea_texture_path;
 	int		floor_rgb;
 	int		ceiling_rgb;
-	t_map	map;
-	t_flag	flag;
+	t_map		map;
+	t_flag		flag;
+	t_player	player;
+	t_image		screen_img;
+	t_ray		ray;
+	int			**texture;
 }	t_data;
 
 enum e_direction {
@@ -160,13 +157,13 @@ void	get_height_and_width(t_data *data);
 void	duplicate_to_array(t_data *data);
 void	chararr_to_intarr(t_data *data);
 
-void	set_info(t_info *info, t_data *data);
+void	set_data(t_data *data);
 
-void	load_texture(t_info *info);
-void	make_texture_arr(t_info *info);
+void	load_texture(t_data *data);
+void	make_texture_arr(t_data *data);
 
 void	calculate_wall(t_player *player, t_ray *ray);
 
-void	ft_mlx_loop(t_info *info);
+void	ft_mlx_loop(t_data *data);
 
 #endif
