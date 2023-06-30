@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 20:15:08 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/30 20:33:41 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ static int	read_cub_file(int fd, t_data *data)
 			break ;
 		temp = line;
 		newline_to_null(temp);
+		if (data->flag.is_map == TRUE && temp[0] == '\0')
+			error_and_exit("The map's format entered wrongly.");
 		if (manipulate_line(data, temp) == -1)
-			return \
-			(print_error("The file's format entered wrongly.", -1, line));
+			error_and_exit("The file's format entered wrongly.");
 		free(line);
 	}
 	return (0);

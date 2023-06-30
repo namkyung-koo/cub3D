@@ -6,28 +6,28 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 20:14:30 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/30 20:26:11 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// static void	free_heap_section(t_data *data)
-// {
-// 	int	i;
+static void	free_heap_section(t_data *data)
+{
+	int	i;
 
-// 	i = 0;
-// 	free(data->no_texture_path);
-// 	free(data->so_texture_path);
-// 	free(data->we_texture_path);
-// 	free(data->ea_texture_path);
-// 	while (i < data->map.height)
-// 	{
-// 		free(data->map.frame[i]);
-// 		i++;
-// 	}
-// 	free(data->map.frame);
-// }
+	i = 0;
+	free(data->no_texture_path);
+	free(data->so_texture_path);
+	free(data->we_texture_path);
+	free(data->ea_texture_path);
+	while (i < data->map.height)
+	{
+		free(data->map.frame[i]);
+		i++;
+	}
+	free(data->map.frame);
+}
 
 static void	display_data(t_data *data)
 {
@@ -60,6 +60,7 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
+	// atexit(leaks);
 	if (ac != 2)
 		return (print_error("The number of argument must be one.", 1, NULL));
 	if (check_extension(av[1], "cub") == -1)
@@ -67,6 +68,7 @@ int	main(int ac, char **av)
 	if (open_cub_file(av[1], &data) == -1)
 		return (1);
 	display_data(&data);
+	free_heap_section(&data);
 	// if (open_cub_file(av[1], &data) == -1)
 	// 	return (1);
 	// data.mlx = mlx_init();
