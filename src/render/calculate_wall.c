@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_wall.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:11:36 by jisulee           #+#    #+#             */
-/*   Updated: 2023/06/30 16:20:48 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/06/30 21:16:54 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 void	calculate_start_and_endpoint(t_ray *ray)
 {
