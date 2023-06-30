@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/29 13:34:18 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/30 16:31:59 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,12 @@ int		fill_map(t_data *data, char *line);
 
 // map_part.c
 void	check_map_data(t_data *data);
+
+// set_value_utils.c
+void	skip_space(char **line);
+void	init_t_data(t_data *data);
+void	get_height_and_width(t_data *data);
+void	duplicate_to_array(t_data *data);
+void	chararr_to_intarr(t_data *data);
 
 #endif

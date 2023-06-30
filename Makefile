@@ -2,7 +2,7 @@ NAME = cub3D
 CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP
 INC_DIR = inc
 SRC_DIR = src
-SRCS = main.c utils.c file_validation.c identifier_part.c map_part.c middle_part.c
+SRCS = main.c utils.c file_validation.c identifier_part.c map_part.c middle_part.c set_value_utils.c
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

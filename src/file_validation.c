@@ -6,23 +6,23 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:23:58 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/29 18:22:03 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/06/30 16:52:14 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	init_t_data(t_data *data)
+static void	is_empty_file(const char *cub_file)
 {
-	ft_memset(data, 0, sizeof(t_data));
-	data->floor_rgb = -2;
-	data->ceiling_rgb = -2;
-}
+	char	temp[2];
+	int		byte;
+	int		fd;
 
-static void	skip_space(char **line)
-{
-	while ((**line) == ' ')
-		(*line)++;
+	temp[0] = '\0';
+	fd = open(cub_file, O_RDONLY);
+	byte = read(fd, temp, 1);
+	if (byte == 0)
+		error_and_exit("The cub file is empty.");
 }
 
 static int	manipulate_line(t_data *data, char *line)
@@ -68,6 +68,7 @@ int	open_cub_file(const char *cub_file, t_data *data)
 {
 	int	fd;
 
+	is_empty_file(cub_file);
 	fd = open(cub_file, O_RDONLY);
 	if (fd == -1)
 		return (print_error("Failed to open CUB FILE", -1, NULL));
