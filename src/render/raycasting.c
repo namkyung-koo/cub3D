@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:37:25 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/05 14:49:52 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/05 20:41:49 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void	raycasting(t_data *data)
 		set_ray(&(data->player), &(data->ray), screen_x);
 		dda_algorithms(&(data->ray));
 		calculate_wall(&(data->player), &(data->ray));
-		selcect_texture(data);
+		selcect_texture(data, &data->ray);
 	}
 }

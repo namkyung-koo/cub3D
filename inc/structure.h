@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 20:18:29 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/05 14:47:17 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/05 20:33:36 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 
 typedef struct s_texture {
-	int	tex_num;
+	
 }	t_texture;
 
 typedef struct s_ray {
