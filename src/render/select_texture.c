@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:31:10 by jisulee           #+#    #+#             */
-/*   Updated: 2023/06/30 21:16:49 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/05 19:23:13 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	select_texture(t_data *data)
 {
-	data->ray.tex_num = map
-
-	
+	// data->ray.tex_num = data->map;
 }
