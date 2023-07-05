@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 20:26:11 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/05 14:36:51 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ int	main(int ac, char **av)
 		return (1);
 	display_data(&data);
 	free_heap_section(&data);
-	// if (open_cub_file(av[1], &data) == -1)
-	// 	return (1);
 	// data.mlx = mlx_init();
 	// data.win = mlx_new_window(data.mlx, screenWidth, screenHeight, "cub3D");
 	// set_data(&data);
