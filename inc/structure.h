@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 20:18:29 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/05 20:33:36 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/05 20:48:32 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_ray {
 
 typedef struct s_image {
 	void	*img;
-	int		*data;
+	int		*img_data;
 	int		img_width;
 	int		img_height;
 	int		size;
@@ -57,7 +57,6 @@ typedef struct s_player {
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
-
 }	t_player;
 
 typedef struct s_flag {

@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:37:25 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/05 20:41:49 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/05 20:48:38 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	set_sidedist(t_player *player, t_ray *ray)
 
 void	set_ray(t_player *player, t_ray *ray, int screen_x)
 {
-	ray->camera_x = (2 * screen_x / (double)screenWidth) - 1;
+	ray->camera_x = (2 * screen_x / (double)screen_width) - 1;
 	ray->raydir_x = player->dir_x + (ray->camera_x * player->plane_x);
 	ray->raydir_y = player->dir_y + (ray->camera_x * player->plane_y);
 	ray->map_x = (int)player->pos_x;
@@ -75,8 +75,9 @@ void	dda_algorithms(t_ray *ray)
 void	raycasting(t_data *data)
 {
 	int	screen_x;
+
 	screen_x = 0;
-	while(screen_x < screenWidth)
+	while (screen_x < screen_width)
 	{
 		set_ray(&(data->player), &(data->ray), screen_x);
 		dda_algorithms(&(data->ray));

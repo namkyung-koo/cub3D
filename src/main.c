@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/05 14:36:51 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/05 19:16:43 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ static void	free_heap_section(t_data *data)
 	free(data->map.frame);
 }
 
-static void	display_data(t_data *data)
-{
-	// identifier part
-	printf("north texture : %s\n", data->no_texture_path);
-	printf("south texture : %s\n", data->so_texture_path);
-	printf("west texture : %s\n", data->we_texture_path);
-	printf("east texture : %s\n", data->ea_texture_path);
-	printf("rgb of floor : %d\n", data->floor_rgb);
-	printf("rgb of ceiling : %d\n", data->ceiling_rgb);
-	// map part
-	printf("플레이어 수 : %d\n", data->map.player);
-	printf("x좌표 : %d(인덱스)\ny좌표 : %d(인덱스)\n", data->map.player_x, data->map.player_y);
-	printf("view_dir : %d width : %d height : %d\n", data->map.view_dir, data->map.width, data->map.height);
-	printf("\n-----------------< MAP >----------------\n\n");
-	for (int i = 0; i < data->map.height; i++)
-	{
-		for (int j = 0; j < data->map.width; j++)
-			printf("%c", data->map.frame[i][j]);
-		printf(".\n");
-	}
-}
+// static void	display_data(t_data *data)
+// {
+// 	// identifier part
+// 	printf("north texture : %s\n", data->no_texture_path);
+// 	printf("south texture : %s\n", data->so_texture_path);
+// 	printf("west texture : %s\n", data->we_texture_path);
+// 	printf("east texture : %s\n", data->ea_texture_path);
+// 	printf("rgb of floor : %d\n", data->floor_rgb);
+// 	printf("rgb of ceiling : %d\n", data->ceiling_rgb);
+// 	// map part
+// 	printf("플레이어 수 : %d\n", data->map.player);
+// 	printf("x좌표 : %d(인덱스)\ny좌표 : %d(인덱스)\n", data->map.player_x, data->map.player_y);
+// 	printf("view_dir : %d width : %d height : %d\n", data->map.view_dir, data->map.width, data->map.height);
+// 	printf("\n-----------------< MAP >----------------\n\n");
+// 	for (int i = 0; i < data->map.height; i++)
+// 	{
+// 		for (int j = 0; j < data->map.width; j++)
+// 			printf("%c", data->map.frame[i][j]);
+// 		printf(".\n");
+// 	}
+// }
 
 // void	leaks(void)
 // {

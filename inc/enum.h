@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 20:17:23 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/05 15:19:33 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/05 19:17:48 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ enum e_texture {
 };
 
 enum e_screen {
-	screenWidth = 640,
-	screenHeight = 480
+	screen_width = 640,
+	screen_height = 480
 };
 
 enum e_bool {

@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:31:10 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/05 19:19:47 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/05 20:46:04 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	select_texture(t_data *data, t_ray *ray)
 {
-	ray->tex_num = data->map.frame[ray->map_x][ray->map_y] - 1;
-	
+	data->ray.tex_num = map
+
 	
 }
