@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:07:45 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/05 19:21:28 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/06 22:22:24 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void	key_press(int keycode, t_data *data)
 
 void	main_loop(t_data *data)
 {
+	draw_floor_ceiling(data);
 	raycasting(data);
 	draw_map(data);
 }
@@ -51,7 +52,7 @@ void	main_loop(t_data *data)
 void	ft_mlx_loop(t_data *data)
 {
 	mlx_loop_hook(data->mlx, &main_loop, &data);
-	mlx_hook(data->win, X_EVENT_KEY_PRESS, 0, key_press, data);
-	mlx_hook(data->win, X_EVENT_KEY_EXIT, 0, ft_close, data);
+	//mlx_hook(data->win, X_EVENT_KEY_PRESS, 0, key_press, data);
+	//mlx_hook(data->win, X_EVENT_KEY_EXIT, 0, ft_close, data);
 	mlx_loop(data->mlx);
 }

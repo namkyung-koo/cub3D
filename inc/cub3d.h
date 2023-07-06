@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 20:19:32 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/06 21:47:12 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@ void	make_texture_arr(t_data *data);
 void	calculate_wall(t_player *player, t_ray *ray);
 
 void	ft_mlx_loop(t_data *data);
+
+void	make_buffer(t_data *data, t_ray * ray, int screen_x);
+void	draw_floor_ceiling(t_data *data);
 
 #endif

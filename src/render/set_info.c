@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:19:59 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/05 19:22:51 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/06 21:22:26 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,27 @@ void	set_player(t_player *player, t_map *map)
 	check_player(player, map);
 }
 
+void	ft_init_buffer(t_data *data)
+{
+	int	idx;
+
+	data->buffer = malloc(sizeof(int *) * screen_height);
+	if (!data->buffer)
+		exit(1);
+	idx = 0;
+	while (idx < screen_height)
+	{
+		data->buffer[idx] = malloc(sizeof(int *) * screen_width);
+		if (!data->buffer[idx])
+			exit(1);
+		idx++;	
+	}
+}
+
 void	set_data(t_data *data)
 {
 	set_player(&data->player, &data->map);
+	ft_init_buffer(data);
 	make_texture_arr(data);
 	load_texture(data);
 }

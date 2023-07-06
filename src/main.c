@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/05 19:16:43 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/06 22:23:43 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ int	main(int ac, char **av)
 		return (1);
 	display_data(&data);
 	free_heap_section(&data);
-	// data.mlx = mlx_init();
-	// data.win = mlx_new_window(data.mlx, screenWidth, screenHeight, "cub3D");
-	// set_data(&data);
-	// data.screen_img.img = mlx_new_image(data.mlx, screenWidth, screenHeight);
-	// data.screen_img.data = (int *)mlx_get_data_addr(data.screen_img.img, &data.screen_img.bpp, &data.screen_img.size, &data.screen_img.endian);
-	// ft_mlx_loop(&data);
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, screen_width, screen_height, "cub3D");
+	set_data(&data);
+	data.screen_img.img = mlx_new_image(data.mlx, screen_width, screen_height);
+	data.screen_img.img_data = (int *)mlx_get_data_addr(data.screen_img.img, &data.screen_img.bpp, &data.screen_img.size, &data.screen_img.endian);
+	ft_mlx_loop(&data);
 	return (0);
 }

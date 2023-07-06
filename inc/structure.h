@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 20:18:29 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/05 20:48:32 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/06 21:05:57 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define STRUCTURE_H
 
 # include "../libft/libft.h"
-
-typedef struct s_texture {
-	
-}	t_texture;
 
 typedef struct s_ray {
 	double	camera_x;
@@ -38,6 +34,8 @@ typedef struct s_ray {
 	int		start_point;
 	int		end_point;
 	int		tex_num;
+	double	wall_x;
+	int		texture_x;
 }	t_ray;
 
 typedef struct s_image {
@@ -91,12 +89,13 @@ typedef struct s_data {
 	char		*ea_texture_path;
 	int			floor_rgb;
 	int			ceiling_rgb;
+	int			**texture;
+	int			**buffer;
 	t_map		map;
 	t_flag		flag;
 	t_player	player;
 	t_image		screen_img;
 	t_ray		ray;
-	int			**texture;
 }	t_data;
 
 #endif
