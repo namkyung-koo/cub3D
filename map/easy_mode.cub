@@ -1,7 +1,7 @@
-NO ./map/texture/north_texture.xpm
-SO ./map/texture/south_texture.xpm
-WE ./map/texture/west_texture.xpm
-EA ./map/texture/east_texture.xpm
+NO ./map/texture/gam_north.xpm
+SO ./map/texture/lee_south.xpm
+WE ./map/texture/gon_west.xpm
+EA ./map/texture/gun_east.xpm
 
 F 220,100,0
 C 225,30,0
