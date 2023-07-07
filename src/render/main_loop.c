@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:07:45 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 21:51:03 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 22:45:42 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ static int	key_press(int keycode, t_data *data)
 {
 	if (keycode == KEY_ESC)
 		ft_close(data);
-	else if (keycode == KEY_W)
-		;
-	else if (keycode == KEY_A)
-		;
-	else if (keycode == KEY_S)
-		;
-	else if (keycode == KEY_D)
-		;
+	// else if (keycode == KEY_W)
+	// 	key_w(data);
+	// else if (keycode == KEY_A)
+	// 	key_a(data);
+	// else if (keycode == KEY_S)
+	// 	key_s(data);
+	// else if (keycode == KEY_D)
+	// 	key_d(data);
 	else if (keycode == KEY_LEFT)
-		;
-	else if (keycode == KEY_RIGHT)
-		;
-	mlx_clear_window(data->mlx, data->win);
+		key_left(data);
+	// else if (keycode == KEY_RIGHT)
+	// 	key_right(data);
+	//mlx_clear_window(data->mlx, data->win);
 	return (0);
 }
 

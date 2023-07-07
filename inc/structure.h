@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 20:18:29 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/06 21:05:57 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 22:28:13 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_player {
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	double	move_speed;
+	double	rot_speed;
 }	t_player;
 
 typedef struct s_flag {

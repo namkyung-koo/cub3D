@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:55:45 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/07 21:57:52 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 22:31:05 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	set_player(t_player *player, t_map *map)
 	player->dir_y = 0;
 	player->plane_x = 0;
 	player->plane_y = 0;
+	player->move_speed = 0.05;
+	player->rot_speed = 0.05;
 	check_player(player, map);
 }
 
