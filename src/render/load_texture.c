@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:40:37 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 16:35:32 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 16:54:21 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	load_texture(t_data *data)
 	load_image(data, &(data->screen_img), data->texture[1], \
 	data->so_texture_path);
 	load_image(data, &(data->screen_img), data->texture[2], \
-	data->so_texture_path);
+	data->we_texture_path);
 	load_image(data, &(data->screen_img), data->texture[3], \
 	data->ea_texture_path);
 }
