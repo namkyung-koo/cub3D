@@ -1,6 +1,6 @@
 NAME = cub3D
 
-CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP -g -fsanitize=address
+CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP
 CLIB = -lmlx -Lmlx -framework OpenGL -framework Appkit
 
 INC_DIR = ./inc/

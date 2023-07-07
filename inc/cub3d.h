@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/07 16:18:12 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 18:43:02 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_mlx_loop(t_data *data);
 
 // raycasting.c
 void	raycasting(t_data *data);
-void	dda_algorithms(t_ray *ray);
+void	dda_algorithms(t_ray *ray, t_map *map);
 void	set_sidedist(t_player *player, t_ray *ray);
 void	set_ray(t_player *player, t_ray *ray, int screen_x);
 

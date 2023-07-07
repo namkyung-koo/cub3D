@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:37:25 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/06 21:57:16 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 18:55:05 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@ void	set_ray(t_player *player, t_ray *ray, int screen_x)
 	set_sidedist(player, ray);
 }
 
-void	dda_algorithms(t_ray *ray)
+void	dda_algorithms(t_ray *ray, t_map *map)
 {
-	t_map	map;
-
 	while (ray->hit == 0)
 	{
 		if (ray->sidedist_x < ray->sidedist_y)
@@ -67,7 +65,7 @@ void	dda_algorithms(t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (map.frame[ray->map_x][ray->map_y] > 0)
+		if (map->frame[ray->map_y][ray->map_x] > 0)
 			ray->hit = 1;
 	}
 }
@@ -80,9 +78,10 @@ void	raycasting(t_data *data)
 	while (screen_x < screen_width)
 	{
 		set_ray(&(data->player), &(data->ray), screen_x);
-		dda_algorithms(&(data->ray));
+		dda_algorithms(&(data->ray), &(data->map));
 		calculate_wall(&(data->player), &(data->ray));
 		select_texture(data, &data->ray);
 		make_buffer(data, &data->ray, screen_x);
+		screen_x++;
 	}
 }

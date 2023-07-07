@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 21:04:49 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 17:10:09 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 17:35:55 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	draw_map(t_data *data)
 	int	x;
 	int	y;
 
-	x = 0;
 	y = 0;
 	while (y < screen_height)
 	{
+		x = 0;
 		while(x < screen_width)
 		{
 			data->screen_img.img_data[y * screen_width + x] = data->buffer[y][x];
@@ -42,8 +42,10 @@ void	draw_floor_ceiling(t_data *data)
 		x = 0;
 		while(x < screen_width)
 		{
-			data->buffer[y][x] = data->floor_rgb;
-			data->buffer[screen_height - y][x] = data->ceiling_rgb;
+			if (y < screen_height / 2)
+				data->buffer[y][x] = data->ceiling_rgb;
+			else
+				data->buffer[y][x] = data->floor_rgb;
 			x++;
 		}
 		y++;
