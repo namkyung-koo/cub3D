@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 21:04:49 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/06 22:20:24 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 17:10:09 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ void	draw_floor_ceiling(t_data *data)
 	int	x;
 	int	y;
 
-	x = 0;
 	y = 0;
-	while (x < screen_width)
+	while (y < screen_height)
 	{
-		while(y < screen_height)
+		x = 0;
+		while(x < screen_width)
 		{
 			data->buffer[y][x] = data->floor_rgb;
 			data->buffer[screen_height - y][x] = data->ceiling_rgb;
-			y++;
+			x++;
 		}
-		x++;
+		y++;
 	}
 }
 
