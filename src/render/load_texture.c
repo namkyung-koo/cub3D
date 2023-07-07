@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:40:37 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 15:07:35 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 16:52:20 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	load_image(t_data *data, t_image *image, int *texture, char *path)
 
 	image->img = mlx_xpm_file_to_image(data->mlx, path, &image->img_width, \
 	&image->img_height);
-	image->img_data = (int *)mlx_get_data_addr(image->img, &image->size, \
-	&image->bpp, &image->endian);
+	image->img_data = (int *)mlx_get_data_addr(image->img, &image->bpp, \
+	&image->size, &image->endian);
 	i = 0;
 	while (i < image->img_height)
 	{
@@ -61,7 +61,7 @@ void	load_texture(t_data *data)
 	load_image(data, &(data->screen_img), data->texture[1], \
 	data->so_texture_path);
 	load_image(data, &(data->screen_img), data->texture[2], \
-	data->so_texture_path);
-	load_image(data, &(data->screen_img), data->texture[3], \
 	data->we_texture_path);
+	load_image(data, &(data->screen_img), data->texture[3], \
+	data->ea_texture_path);
 }
