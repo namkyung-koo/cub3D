@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/06 21:47:12 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 15:12:15 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include "enum.h"
 # include "structure.h"
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 
 // utils.c
@@ -47,16 +48,41 @@ void	get_height_and_width(t_data *data);
 void	duplicate_to_array(t_data *data);
 void	chararr_to_intarr(t_data *data);
 
-void	set_data(t_data *data);
+// calculate_wall.c
+void	calculate_start_and_endpoint(t_ray *ray);
+void	calculate_wall(t_player *player, t_ray *ray);
+double	calculate_perpwalldist(t_player *player, t_ray *ray);
 
+// draw.c
+void	draw_map(t_data *data);
+void	draw_floor_ceiling(t_data *data);
+void	make_buffer(t_data *data, t_ray * ray, int screen_x);
+
+// load_texture.c
 void	load_texture(t_data *data);
 void	make_texture_arr(t_data *data);
+void	load_image(t_data *data, t_image *image, int *texture, char *path);
 
-void	calculate_wall(t_player *player, t_ray *ray);
-
+// main_loop.c
+int		main_loop(t_data *data);
 void	ft_mlx_loop(t_data *data);
 
-void	make_buffer(t_data *data, t_ray * ray, int screen_x);
-void	draw_floor_ceiling(t_data *data);
+// raycasting.c
+void	raycasting(t_data *data);
+void	dda_algorithms(t_ray *ray);
+void	set_sidedist(t_player *player, t_ray *ray);
+void	set_ray(t_player *player, t_ray *ray, int screen_x);
+
+// select_texture.c
+int		check_dir(t_ray *ray);
+void	calculate_texture_x(t_ray *ray);
+void	select_texture(t_data *data, t_ray *ray);
+void	calculate_wall_x(t_data *data, t_ray *ray);
+
+// set_info.c
+void	set_data(t_data *data);
+void	ft_init_buffer(t_data *data);
+void	set_player(t_player *player, t_map *map);
+void	check_player(t_player *player, t_map *map);
 
 #endif

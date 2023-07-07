@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/06 22:23:43 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 14:54:42 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char **av)
 		return (print_error("The argument's extension must be cub.", 1, NULL));
 	if (open_cub_file(av[1], &data) == -1)
 		return (1);
-	display_data(&data);
+	// display_data(&data);
 	free_heap_section(&data);
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, screen_width, screen_height, "cub3D");

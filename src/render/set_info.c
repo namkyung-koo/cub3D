@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:19:59 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/06 21:22:26 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 14:55:00 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	check_player(t_player *player, t_map *map)
 {
-	if (map->view_dir == "78")
+	if (map->view_dir == NORTH)
 	{
 		player->dir_y = 1;
 		player->plane_x = 0.66;
 	}
-	if (map->view_dir == "83")
+	if (map->view_dir == SOUTH)
 	{
 		player->dir_y = -1;
 		player->plane_x = 0.66;
 	}
-	if (map->view_dir == "87")
+	if (map->view_dir == WEST)
 	{
 		player->dir_x = -1;
 		player->plane_y = 0.66;
 	}
-	if (map->view_dir == "69")
+	if (map->view_dir == EAST)
 	{
 		player->dir_x = 1;
 		player->plane_y = 0.66;
@@ -38,8 +38,6 @@ void	check_player(t_player *player, t_map *map)
 
 void	set_player(t_player *player, t_map *map)
 {
-	t_map	map;
-
 	player->pos_x = map->player_x + 0.5;
 	player->pos_y = map->player_y + 0.5;
 	player->dir_x = 0;

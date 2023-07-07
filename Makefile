@@ -1,10 +1,12 @@
 NAME = cub3D
-CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP
+
+CFLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -MMD -MP -g -fsanitize=address
+CLIB = -lmlx -Lmlx -framework OpenGL -framework Appkit
 
 INC_DIR = ./inc/
 
 SRCS_PARSE = $(addprefix parse/, utils.c file_validation.c identifier_part.c map_part.c middle_part.c set_value_utils.c)
-SRCS_RENDER = $(addprefix render/, calculate_wall.c load_texture.c main_loop.c raycasting.c select_texture.c set_info.c)
+SRCS_RENDER = $(addprefix render/, calculate_wall.c load_texture.c main_loop.c raycasting.c select_texture.c set_info.c draw.c)
 
 SRC_DIR = ./src/
 SRCS = main.c $(SRCS_PARSE) $(SRCS_RENDER)
@@ -20,8 +22,8 @@ all : $(NAME)
 
 $(NAME) : $(OBJ_DIR) $(OBJS)
 	make bonus -s -C libft
-	make -s -C minilibx_opengl_20191021
-	$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a ./minilibx_opengl_20191021/libmlx.a -o $@
+	make all -s -C mlx
+	$(CC) $(CFLAGS) $(CLIB) $(OBJS) ./libft/libft.a -o $@
 
 $(OBJ_DIR) :
 	mkdir $@
@@ -31,7 +33,7 @@ $(OBJ_DIR)/%.o : %.c
 
 clean :
 	make clean -s -C libft
-	make clean -s -C minilibx_opengl_20191021
+	make clean -s -C mlx
 	rm -rf $(OBJ_DIR)
 
 fclean : clean
