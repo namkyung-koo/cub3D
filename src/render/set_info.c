@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:19:59 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 14:55:00 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 16:16:58 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	ft_init_buffer(t_data *data)
 {
 	int	idx;
 
-	data->buffer = malloc(sizeof(int *) * screen_height);
+	data->buffer = (int **)malloc(sizeof(int *) * screen_height);
 	if (!data->buffer)
 		exit(1);
 	idx = 0;
 	while (idx < screen_height)
 	{
-		data->buffer[idx] = malloc(sizeof(int *) * screen_width);
+		data->buffer[idx] = (int *)malloc(sizeof(int) * screen_width);
 		if (!data->buffer[idx])
 			exit(1);
 		idx++;	

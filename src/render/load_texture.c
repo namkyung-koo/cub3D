@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:40:37 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 16:33:18 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/07 16:35:32 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	load_image(t_data *data, t_image *image, int *texture, char *path)
 
 	image->img = mlx_xpm_file_to_image(data->mlx, path, &image->img_width, \
 	&image->img_height);
-	image->img_data = (int *)mlx_get_data_addr(image->img, &image->size, \
-	&image->bpp, &image->endian);
+	image->img_data = (int *)mlx_get_data_addr(image->img, &image->bpp, \
+	&image->size, &image->endian);
 	i = 0;
-	while (i < image->img_height)
+	while (i < tex_height)
 	{
 		j = 0;
-		while (j < image->img_width)
+		while (j < tex_width)
 		{
 			texture[image->img_width * i + j] = \
 			image->img_data[image->img_width * i + j];
@@ -61,7 +61,7 @@ void	load_texture(t_data *data)
 	load_image(data, &(data->screen_img), data->texture[1], \
 	data->so_texture_path);
 	load_image(data, &(data->screen_img), data->texture[2], \
-	data->we_texture_path);
+	data->so_texture_path);
 	load_image(data, &(data->screen_img), data->texture[3], \
 	data->ea_texture_path);
 }
