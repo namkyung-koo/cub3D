@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:55:45 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/07 16:55:48 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 20:23:03 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_player(t_player *player, t_map *map)
 	}
 	if (map->view_dir == SOUTH)
 	{
-
+		player->dir_y = -1;
 		player->plane_x = 0.66;
 	}
 	if (map->view_dir == WEST)

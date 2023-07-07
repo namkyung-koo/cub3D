@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:37:25 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 18:55:05 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 21:41:44 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	dda_algorithms(t_ray *ray, t_map *map)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (map->frame[ray->map_y][ray->map_x] > 0)
+		if (map->frame[ray->map_y][ray->map_x] > '0')
 			ray->hit = 1;
 	}
 }

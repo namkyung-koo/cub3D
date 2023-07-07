@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:31:10 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 15:09:15 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 19:16:35 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_dir(t_ray *ray)
 		else
 			return (3);
 	}
-	return (0); // error 메세지 없애기 위해 임의로 넣은 코드
+	return (-1);
 }
 
 void	calculate_wall_x(t_data *data, t_ray *ray)

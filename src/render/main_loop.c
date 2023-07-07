@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:07:45 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 18:48:56 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 21:51:03 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ static int	key_press(int keycode, t_data *data)
 	else if (keycode == KEY_S)
 		;
 	else if (keycode == KEY_D)
-		;
-	else if (keycode == KEY_UP)
-		;
-	else if (keycode == KEY_DOWN)
 		;
 	else if (keycode == KEY_LEFT)
 		;

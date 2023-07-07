@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:11:36 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/05 19:18:55 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 21:33:17 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ double	calculate_perpwalldist(t_player *player, t_ray *ray)
 void	calculate_wall(t_player *player, t_ray *ray)
 {
 	ray->perpwalldist = calculate_perpwalldist(player, ray);
+	printf("perpwalldist : %f\n", ray->perpwalldist);
 	ray->line_height = (int)(screen_height / ray->perpwalldist);
 	calculate_start_and_endpoint(ray);
 }

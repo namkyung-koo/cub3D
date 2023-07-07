@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:21:49 by nakoo             #+#    #+#             */
-/*   Updated: 2023/06/30 16:24:25 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 21:43:40 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,11 @@ void	chararr_to_intarr(t_data *data)
 		j = 0;
 		while (j < data->map.width)
 		{
-			data->map.frame[i][j] = data->map.arr[i][j];
+			if (data->map.arr[i][j] == 'E' || data->map.arr[i][j] == 'W'
+				|| data->map.arr[i][j] == 'N' || data->map.arr[i][j] == 'S')
+				data->map.frame[i][j] = '0';
+			else
+				data->map.frame[i][j] = data->map.arr[i][j];
 			j++;
 		}
 		free(data->map.arr[i]);
