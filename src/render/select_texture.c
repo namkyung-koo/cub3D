@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   select_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:31:10 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 19:16:35 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/07 21:58:46 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int	check_dir(t_ray *ray)
 	if (ray->side == 1)
 	{
 		if (ray->raydir_y > 0)
-			return (0);
-		else
 			return (1);
+		else
+			return (0);
 	}
 	else if (ray->side == 0)
 	{
 		if (ray->raydir_x > 0)
-			return (2);
-		else
 			return (3);
+		else
+			return (2);
 	}
 	return (-1);
 }
