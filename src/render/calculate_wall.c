@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_wall.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:11:36 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 21:59:43 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 13:59:19 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	calculate_start_and_endpoint(t_ray *ray)
 {
-	ray->start_point = ((screen_height / 2) - (ray->line_height / 2));
+	ray->start_point = ((SCREEN_HEIGHT / 2) - (ray->line_height / 2));
 	if (ray->start_point < 0)
 		ray->start_point = 0;
-	ray->end_point = ((ray->line_height / 2) + (screen_height / 2));
-	if (ray->end_point >= screen_height)
-		ray->end_point = screen_height - 1;
+	ray->end_point = ((ray->line_height / 2) + (SCREEN_HEIGHT / 2));
+	if (ray->end_point >= SCREEN_HEIGHT)
+		ray->end_point = SCREEN_HEIGHT - 1;
 }
 
 double	calculate_perpwalldist(t_player *player, t_ray *ray)
@@ -35,6 +35,6 @@ double	calculate_perpwalldist(t_player *player, t_ray *ray)
 void	calculate_wall(t_player *player, t_ray *ray)
 {
 	ray->perpwalldist = calculate_perpwalldist(player, ray);
-	ray->line_height = (int)(screen_height / ray->perpwalldist);
+	ray->line_height = (int)(SCREEN_HEIGHT / ray->perpwalldist);
 	calculate_start_and_endpoint(ray);
 }

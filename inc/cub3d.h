@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/07 22:46:09 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 13:56:26 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ double	calculate_perpwalldist(t_player *player, t_ray *ray);
 // draw.c
 void	draw_map(t_data *data);
 void	draw_floor_ceiling(t_data *data);
-void	make_buffer(t_data *data, t_ray * ray, int screen_x);
+void	make_buffer(t_data *data, t_ray *ray, int screen_x);
 
 // load_texture.c
 void	load_texture(t_data *data);

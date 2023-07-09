@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   select_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:31:10 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 21:58:46 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 13:57:28 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	calculate_wall_x(t_data *data, t_ray *ray)
 
 void	calculate_texture_x(t_ray *ray)
 {
-	ray->texture_x = (int)(ray->wall_x * (double)tex_width);
+	ray->texture_x = (int)(ray->wall_x * (double)TEX_WIDTH);
 	if (ray->side == 0 && ray->raydir_x > 0)
-		ray->texture_x = tex_width - ray->texture_x - 1;
+		ray->texture_x = TEX_WIDTH - ray->texture_x - 1;
 	if (ray->side == 1 && ray->raydir_y < 0)
-		ray->texture_x = tex_width - ray->texture_x - 1;
+		ray->texture_x = TEX_WIDTH - ray->texture_x - 1;
 }
 
 void	select_texture(t_data *data, t_ray *ray)

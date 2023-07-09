@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:55:45 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/07 22:31:05 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 13:59:38 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,16 @@ void	ft_init_buffer(t_data *data)
 {
 	int	idx;
 
-	data->buffer = (int **)malloc(sizeof(int *) * screen_height);
+	data->buffer = (int **)malloc(sizeof(int *) * SCREEN_HEIGHT);
 	if (!data->buffer)
 		exit(1);
 	idx = 0;
-	while (idx < screen_height)
+	while (idx < SCREEN_HEIGHT)
 	{
-		data->buffer[idx] = (int *)malloc(sizeof(int) * screen_width);
+		data->buffer[idx] = (int *)malloc(sizeof(int) * SCREEN_WIDTH);
 		if (!data->buffer[idx])
 			exit(1);
-		idx++;	
+		idx++;
 	}
 }
 

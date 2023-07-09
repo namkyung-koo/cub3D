@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:40:37 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 16:54:21 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 13:58:25 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	make_texture_arr(t_data *data)
 	while (idx < 4)
 	{
 		data->texture[idx] = (int *) \
-		malloc(sizeof(int) * (tex_height * tex_width));
+		malloc(sizeof(int) * (TEX_HEIGHT * TEX_WIDTH));
 		if (!data->texture[idx])
 			exit (1);
 		idx++;
@@ -40,10 +40,10 @@ void	load_image(t_data *data, t_image *image, int *texture, char *path)
 	image->img_data = (int *)mlx_get_data_addr(image->img, &image->bpp, \
 	&image->size, &image->endian);
 	i = 0;
-	while (i < tex_height)
+	while (i < TEX_HEIGHT)
 	{
 		j = 0;
-		while (j < tex_width)
+		while (j < TEX_WIDTH)
 		{
 			texture[image->img_width * i + j] = \
 			image->img_data[image->img_width * i + j];

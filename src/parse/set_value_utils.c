@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:21:49 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/07 21:43:40 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/09 14:03:47 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,32 +69,29 @@ void	duplicate_to_array(t_data *data)
 
 void	chararr_to_intarr(t_data *data)
 {
-	size_t	len;
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	data->map.frame = (int **)malloc(sizeof(int *) * data->map.height);
 	if (data->map.frame == NULL)
 		error_and_exit("Failed to allocate memory.");
-	i = 0;
-	while (i < data->map.height)
+	i = -1;
+	while (++i < data->map.height)
 	{
-		len = ft_strlen(data->map.arr[i]);
-		data->map.frame[i] = (int *)malloc(sizeof(int) * len);
+		data->map.frame[i] = (int *)malloc(sizeof(int) * \
+		ft_strlen(data->map.arr[i]));
 		if (data->map.frame[i] == NULL)
 			error_and_exit("Failed to allocate memory.");
-		j = 0;
-		while (j < data->map.width)
+		j = -1;
+		while (++j < data->map.width)
 		{
 			if (data->map.arr[i][j] == 'E' || data->map.arr[i][j] == 'W'
 				|| data->map.arr[i][j] == 'N' || data->map.arr[i][j] == 'S')
 				data->map.frame[i][j] = '0';
 			else
 				data->map.frame[i][j] = data->map.arr[i][j];
-			j++;
 		}
 		free(data->map.arr[i]);
-		i++;
 	}
 	free(data->map.arr);
 }
