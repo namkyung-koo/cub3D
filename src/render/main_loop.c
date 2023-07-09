@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:07:45 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/07 22:45:42 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 16:15:00 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static int	key_press(int keycode, t_data *data)
 	// 	key_d(data);
 	else if (keycode == KEY_LEFT)
 		key_left(data);
-	// else if (keycode == KEY_RIGHT)
-	// 	key_right(data);
+	else if (keycode == KEY_RIGHT)
+		key_right(data);
 	//mlx_clear_window(data->mlx, data->win);
 	return (0);
 }

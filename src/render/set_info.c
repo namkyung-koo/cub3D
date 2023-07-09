@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:55:45 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/09 14:34:57 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/09 15:49:17 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_player(t_player *player, t_map *map)
 	if (map->view_dir == NORTH)
 	{
 		player->dir_y = -1;
-		player->plane_x = 0.66;
+		player->plane_x = -0.66;
 	}
 	if (map->view_dir == SOUTH)
 	{
@@ -32,7 +32,7 @@ void	check_player(t_player *player, t_map *map)
 	if (map->view_dir == EAST)
 	{
 		player->dir_x = 1;
-		player->plane_y = 0.66;
+		player->plane_y = -0.66;
 	}
 }
 
