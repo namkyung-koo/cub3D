@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:37:25 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/09 13:57:43 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/09 14:59:01 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,24 @@ void	set_ray(t_player *player, t_ray *ray, int screen_x)
 	ray->raydir_y = player->dir_y + (ray->camera_x * player->plane_y);
 	ray->map_x = (int)player->pos_x;
 	ray->map_y = (int)player->pos_y;
-	ray->deltadist_x = fabs(1 / ray->raydir_x);
-	ray->deltadist_y = fabs(1 / ray->raydir_y);
+	if (ray->raydir_y == 0)
+		ray->deltadist_x = 0;
+	else
+	{
+		if (ray->raydir_x == 0)
+			ray->deltadist_x = 1;
+		else
+			ray->deltadist_x = fabs(1 / ray->raydir_x);
+	}
+	if (ray->raydir_x == 0)
+		ray->deltadist_y = 0;
+	else
+	{
+		if (ray->raydir_y == 0)
+			ray->deltadist_y = 1;
+		else
+			ray->deltadist_y = fabs(1 / ray->raydir_y);
+	}
 	ray->hit = 0;
 	set_sidedist(player, ray);
 }
