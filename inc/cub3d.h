@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/09 16:15:28 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 18:53:44 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,8 @@ void	check_player(t_player *player, t_map *map);
 void	key_left(t_data *data);
 void	key_right(t_data *data);
 
+void	key_player_w(t_data *data);
+void	key_player_s(t_data *data);
+void	key_player_a(t_data *data);
+void	key_player_d(t_data *data);
 #endif
