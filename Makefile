@@ -8,15 +8,29 @@ INC_DIR = ./inc/
 SRCS_PARSE = $(addprefix parse/, utils.c file_validation.c identifier_part.c map_part.c middle_part.c set_value_utils.c)
 SRCS_RENDER = $(addprefix render/, calculate_wall.c load_texture.c main_loop.c raycasting.c select_texture.c set_info.c draw.c key_left_right.c)
 
+SRCS_BNS_PARSE = $(addprefix parse/,)
+SRCS_BNS_RENDER = $(addprefix render/,)
+
 SRC_DIR = ./src/
+SRC_BNS_DIR = ./src_bonus/
+
 SRCS = main.c $(SRCS_PARSE) $(SRCS_RENDER)
+SRCS_BNS = main_bonus.c $(SRCS_BNS_PARSE) $(SRCS_BNS_RENDER)
+
 SRCS_NAME = $(addprefix $(SRC_DIR), $(SRCS))
+SRCS_BNS_NAME = $(addprefix $(SRCS_BNS), $(SRCS_BNS))
 
 OBJ_DIR = obj
-OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_NAME:.c=.o)))
-DEPS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_NAME:.c=.d)))
 
-vpath %.c $(SRC_DIR) $(SRC_DIR)parse/ $(SRC_DIR)render/
+ifndef WITH_BONUS
+	OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_NAME:.c=.o)))
+	DEPS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_NAME:.c=.d)))
+	vpath %.c $(SRC_DIR) $(SRC_DIR)parse/ $(SRC_DIR)render/
+else
+	OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_BNS_NAME:.c=.o)))
+	DEPS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_BNS_NAME:.c=.d)))
+	vpath %.c $(SRC_BNS_DIR) $(SRC_BNS_DIR)parse/ $(SRC_BNS_DIR)render/
+endif
 
 all : $(NAME)
 
@@ -30,6 +44,9 @@ $(OBJ_DIR) :
 
 $(OBJ_DIR)/%.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus :
+	@make WITH_BONUS=1 all
 
 clean :
 	make clean -s -C libft
