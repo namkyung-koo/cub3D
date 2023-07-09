@@ -6,7 +6,7 @@
 /*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:07:45 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/09 16:15:00 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 18:53:25 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ static int	key_press(int keycode, t_data *data)
 {
 	if (keycode == KEY_ESC)
 		ft_close(data);
-	// else if (keycode == KEY_W)
-	// 	key_w(data);
-	// else if (keycode == KEY_A)
-	// 	key_a(data);
-	// else if (keycode == KEY_S)
-	// 	key_s(data);
-	// else if (keycode == KEY_D)
-	// 	key_d(data);
+	else if (keycode == KEY_W)
+		key_player_w(data);
+	else if (keycode == KEY_A)
+		key_player_a(data);
+	else if (keycode == KEY_S)
+		key_player_s(data);
+	else if (keycode == KEY_D)
+		key_player_d(data);
 	else if (keycode == KEY_LEFT)
 		key_left(data);
 	else if (keycode == KEY_RIGHT)

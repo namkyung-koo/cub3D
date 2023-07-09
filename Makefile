@@ -6,7 +6,7 @@ CLIB = -lmlx -Lmlx -framework OpenGL -framework Appkit
 INC_DIR = ./inc/
 
 SRCS_PARSE = $(addprefix parse/, utils.c file_validation.c identifier_part.c map_part.c middle_part.c set_value_utils.c)
-SRCS_RENDER = $(addprefix render/, calculate_wall.c load_texture.c main_loop.c raycasting.c select_texture.c set_info.c draw.c key_left_right.c)
+SRCS_RENDER = $(addprefix render/, calculate_wall.c load_texture.c main_loop.c raycasting.c select_texture.c set_info.c draw.c key_left_right.c key_player.c)
 
 SRCS_BNS_PARSE = $(addprefix parse/,)
 SRCS_BNS_RENDER = $(addprefix render/,)
