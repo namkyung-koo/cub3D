@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:07:45 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/09 18:53:25 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 19:39:03 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static int	key_press(int keycode, t_data *data)
 		key_left(data);
 	else if (keycode == KEY_RIGHT)
 		key_right(data);
-	//mlx_clear_window(data->mlx, data->win);
 	return (0);
 }
 

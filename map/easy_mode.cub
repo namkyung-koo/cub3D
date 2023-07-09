@@ -3,8 +3,8 @@ SO ./map/texture/lee_south.xpm
 WE ./map/texture/gon_west.xpm
 EA ./map/texture/gun_east.xpm
 
-F 220,100,0
-C 225,30,0
+F 168,153,198
+C 200,244,255
 
         1111111111111111111111111
         10000000001100000110000001

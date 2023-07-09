@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 21:04:49 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/09 14:43:07 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/09 19:37:24 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,15 @@ void	make_buffer(t_data *data, t_ray *ray, int screen_x)
 	int		y;
 
 	step = 1.0 * TEX_HEIGHT / ray->line_height;
-	texture_pos = (ray->start_point - SCREEN_HEIGHT / 2 + ray->line_height / 2) * step;
+	texture_pos = \
+	(ray->start_point - SCREEN_HEIGHT / 2 + ray->line_height / 2) * step;
 	y = ray->start_point;
 	while (y < ray->end_point)
 	{
 		texture_y = (int)texture_pos & (TEX_HEIGHT - 1);
 		texture_pos += step;
-		data->buffer[y][screen_x] = data->texture[ray->tex_num][TEX_HEIGHT * texture_y + ray->texture_x];
+		data->buffer[y][screen_x] = \
+		data->texture[ray->tex_num][TEX_HEIGHT * texture_y + ray->texture_x];
 		y++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:56:19 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/09 18:53:44 by jisulee          ###   ########.fr       */
+/*   Updated: 2023/07/09 19:27:10 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,14 @@ void	ft_init_buffer(t_data *data);
 void	set_player(t_player *player, t_map *map);
 void	check_player(t_player *player, t_map *map);
 
+// key_left_right.c
 void	key_left(t_data *data);
 void	key_right(t_data *data);
 
+// key_player.c
 void	key_player_w(t_data *data);
 void	key_player_s(t_data *data);
 void	key_player_a(t_data *data);
 void	key_player_d(t_data *data);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:55:50 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/09 14:00:52 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/09 19:35:13 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,28 @@ static void	free_heap_section(t_data *data)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
+	while (++i < data->map.height)
+		free(data->map.frame[i]);
+	i = -1;
+	while (++i < SCREEN_HEIGHT)
+		free(data->buffer[i]);
+	i = -1;
+	while (++i < 4)
+		free(data->texture[i]);
 	free(data->no_texture_path);
 	free(data->so_texture_path);
 	free(data->we_texture_path);
 	free(data->ea_texture_path);
-	while (i < data->map.height)
-	{
-		free(data->map.frame[i]);
-		i++;
-	}
 	free(data->map.frame);
+	free(data->buffer);
+	free(data->texture);
 }
-
-// void	leaks(void)
-// {
-// 	system("leaks cub3D");
-// }
 
 int	main(int ac, char **av)
 {
 	t_data	data;
 
-	// atexit(leaks);
 	if (ac != 2)
 		return (print_error("The number of argument must be one.", 1, NULL));
 	if (check_extension(av[1], "cub") == -1)
