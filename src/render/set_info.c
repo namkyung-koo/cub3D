@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:55:45 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/10 11:05:19 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/10 11:15:51 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	set_player(t_player *player, t_map *map)
 	player->dir_y = 0;
 	player->plane_x = 0;
 	player->plane_y = 0;
-	player->move_speed = 0.15;
-	player->rot_speed = 0.08;
+	player->move_speed = 0.3;
+	player->rot_speed = 0.2;
 	check_player(player, map);
 }
 
