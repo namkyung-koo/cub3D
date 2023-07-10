@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 19:46:26 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/09 19:46:39 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/10 11:02:08 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	get_height_and_width(t_data *data)
 	t_node	*temp;
 	int		max;
 
+	if (data->map.list == NULL)
+		error_and_exit("The file's format entered wrongly.");
 	temp = data->map.list->head_node.next;
 	max = 0;
 	while (temp != NULL)
