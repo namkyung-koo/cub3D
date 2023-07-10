@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   key_left_right.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:21:44 by jisulee           #+#    #+#             */
-/*   Updated: 2023/07/09 19:38:40 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/10 16:16:42 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	key_left(t_data *data)
+void	key_right(t_data *data)
 {
 	double	old_dir_x;
 	double	old_plane_x;
@@ -29,7 +29,7 @@ void	key_left(t_data *data)
 	data->player.plane_y * cos(data->player.rot_speed);
 }
 
-void	key_right(t_data *data)
+void	key_left(t_data *data)
 {
 	double	old_dir_x;
 	double	old_plane_x;

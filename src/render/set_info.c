@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jisulee <jisulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:55:45 by nakoo             #+#    #+#             */
-/*   Updated: 2023/07/10 11:15:51 by nakoo            ###   ########.fr       */
+/*   Updated: 2023/07/10 16:15:53 by jisulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ void	check_player(t_player *player, t_map *map)
 	if (map->view_dir == NORTH)
 	{
 		player->dir_y = -1;
-		player->plane_x = -0.66;
+		player->plane_x = 0.66;
 	}
 	if (map->view_dir == SOUTH)
 	{
 		player->dir_y = 1;
-		player->plane_x = 0.66;
+		player->plane_x = -0.66;
 	}
 	if (map->view_dir == WEST)
 	{
 		player->dir_x = -1;
-		player->plane_y = 0.66;
+		player->plane_y = -0.66;
 	}
 	if (map->view_dir == EAST)
 	{
 		player->dir_x = 1;
-		player->plane_y = -0.66;
+		player->plane_y = 0.66;
 	}
 }
 
@@ -44,8 +44,8 @@ void	set_player(t_player *player, t_map *map)
 	player->dir_y = 0;
 	player->plane_x = 0;
 	player->plane_y = 0;
-	player->move_speed = 0.3;
-	player->rot_speed = 0.2;
+	player->move_speed = 0.1;
+	player->rot_speed = 0.1;
 	check_player(player, map);
 }
 
